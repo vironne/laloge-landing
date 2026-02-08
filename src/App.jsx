@@ -255,12 +255,6 @@ function Hero() {
           </div>
         </div>
       </div>
-      <div className="hero-divider" style={{
-        opacity: loaded ? 1 : 0,
-        left: dividerLeft,
-        transform: loaded ? "translate(-50%,-50%) scale(1)" : "translate(-50%,-50%) scale(0)",
-        transition: "opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s, left 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
-      }}><span style={{ fontFamily: "var(--serif)" }}>×</span></div>
     </section>
   );
 }
