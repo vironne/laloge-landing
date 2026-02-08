@@ -65,10 +65,17 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .nav-cta { background: var(--ink) !important; color: var(--creme) !important; padding: 10px 24px !important; font-size: 12px !important; letter-spacing: 1px !important; font-weight: 500 !important; border: none; cursor: pointer; transition: all 0.25s; }
 .nav-cta:hover { background: var(--terre) !important; }
 
-.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; }
-.hero-side { display: flex; flex-direction: column; justify-content: center; padding: 140px 64px 80px; position: relative; overflow: hidden; }
+.hero { min-height: 100vh; display: flex; position: relative; }
+.hero-side { display: flex; flex-direction: column; justify-content: center; padding: 140px 64px 80px; position: relative; overflow: hidden; flex: 1; transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.hero-side .hero-content { transition: opacity 0.4s ease, transform 0.4s ease; }
 .hero-left { background: var(--ink); color: var(--creme); }
 .hero-right { background: var(--paper); color: var(--ink); }
+@media (min-width: 901px) {
+  .hero:hover .hero-side { flex: 0.6; }
+  .hero:hover .hero-side .hero-content { opacity: 0.3; transform: scale(0.96); }
+  .hero .hero-side:hover { flex: 1.4; }
+  .hero .hero-side:hover .hero-content { opacity: 1 !important; transform: scale(1) !important; }
+}
 .hero-label { font-size: 10px; letter-spacing: 3px; font-weight: 500; margin-bottom: 24px; }
 .hero-left .hero-label { color: ${C.bronze}; }
 .hero-right .hero-label { color: var(--terre); opacity: 0.6; }
@@ -80,7 +87,7 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .btn-light:hover { background: ${C.bronze}; color: var(--ink); }
 .btn-dark { color: var(--ink); border-color: var(--terre); background: transparent; }
 .btn-dark:hover { background: var(--ink); color: var(--creme); }
-.hero-divider { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 10; width: 64px; height: 64px; background: var(--terre); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 14px; color: var(--paper); box-shadow: 0 4px 24px rgba(0,0,0,0.15); }
+.hero-divider { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 10; width: 64px; height: 64px; background: var(--terre); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 14px; color: var(--paper); box-shadow: 0 4px 24px rgba(0,0,0,0.15); transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; }
 .hero-stat { display: flex; gap: 40px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
 .hero-right .hero-stat { border-color: var(--sand); }
 .stat-num { font-family: var(--serif); font-size: 28px; display: block; }
@@ -195,46 +202,64 @@ function Nav() {
 
 function Hero() {
   const [loaded, setLoaded] = useState(false);
+  const [hovered, setHovered] = useState(null); // "left" | "right" | null
+  const heroRef = useRef(null);
   useEffect(() => { setTimeout(() => setLoaded(true), 100); }, []);
   const anim = (d) => ({
     opacity: loaded ? 1 : 0,
     transform: loaded ? "translateY(0)" : "translateY(40px)",
     transition: `opacity 0.8s ease ${d}s, transform 0.8s ease ${d}s`,
   });
+
+  const dividerLeft = hovered === "left" ? "70%" : hovered === "right" ? "30%" : "50%";
+
   return (
-    <section className="hero">
-      <div className="hero-side hero-left noise">
-        <div style={anim(0.2)}><div className="hero-label">POUR LES MARQUES</div></div>
-        <div style={anim(0.35)}>
-          <h1 className="hero-title">Accédez aux<br />meilleurs salons<br /><em>d'Europe.</em></h1>
-        </div>
-        <div style={anim(0.5)}>
-          <p className="hero-desc">Des leads qualifiés, intentionnistes, scorés par IA. Zéro coût fixe. Vous ne payez qu'au résultat.</p>
-        </div>
-        <div style={anim(0.65)}><a href="#offre" className="hero-btn btn-light">DÉCOUVRIR L'OFFRE</a></div>
-        <div className="hero-stat" style={anim(0.8)}>
-          <div><span className="stat-num">78 Md€</span><span className="stat-label">Marché européen</span></div>
-          <div><span className="stat-num">400K+</span><span className="stat-label">Salons en Europe</span></div>
+    <section className="hero" ref={heroRef}>
+      <div
+        className="hero-side hero-left noise"
+        onMouseEnter={() => setHovered("left")}
+        onMouseLeave={() => setHovered(null)}
+      >
+        <div className="hero-content">
+          <div style={anim(0.2)}><div className="hero-label">POUR LES MARQUES</div></div>
+          <div style={anim(0.35)}>
+            <h1 className="hero-title">Accédez aux<br />meilleurs salons<br /><em>d'Europe.</em></h1>
+          </div>
+          <div style={anim(0.5)}>
+            <p className="hero-desc">Des leads qualifiés, intentionnistes, scorés par IA. Zéro coût fixe. Vous ne payez qu'au résultat.</p>
+          </div>
+          <div style={anim(0.65)}><a href="#offre" className="hero-btn btn-light">DÉCOUVRIR L'OFFRE</a></div>
+          <div className="hero-stat" style={anim(0.8)}>
+            <div><span className="stat-num">78 Md€</span><span className="stat-label">Marché européen</span></div>
+            <div><span className="stat-num">400K+</span><span className="stat-label">Salons en Europe</span></div>
+          </div>
         </div>
       </div>
-      <div className="hero-side hero-right noise">
-        <div style={anim(0.3)}><div className="hero-label">POUR LES SALONS</div></div>
-        <div style={anim(0.45)}>
-          <h1 className="hero-title">Choisissez les<br />marques qui vous<br /><em>correspondent.</em></h1>
-        </div>
-        <div style={anim(0.6)}>
-          <p className="hero-desc" style={{ color: C.stone }}>Recevez des propositions de marques premium sélectionnées pour vous. Gratuit. Sans engagement. Vous décidez.</p>
-        </div>
-        <div style={anim(0.75)}><a href="#contact" className="hero-btn btn-dark">REJOINDRE LE RÉSEAU</a></div>
-        <div className="hero-stat" style={anim(0.9)}>
-          <div><span className="stat-num">12</span><span className="stat-label">Critères de qualification</span></div>
-          <div><span className="stat-num">100%</span><span className="stat-label">Gratuit pour les salons</span></div>
+      <div
+        className="hero-side hero-right noise"
+        onMouseEnter={() => setHovered("right")}
+        onMouseLeave={() => setHovered(null)}
+      >
+        <div className="hero-content">
+          <div style={anim(0.3)}><div className="hero-label">POUR LES SALONS</div></div>
+          <div style={anim(0.45)}>
+            <h1 className="hero-title">Choisissez les<br />marques qui vous<br /><em>correspondent.</em></h1>
+          </div>
+          <div style={anim(0.6)}>
+            <p className="hero-desc" style={{ color: C.stone }}>Recevez des propositions de marques premium sélectionnées pour vous. Gratuit. Sans engagement. Vous décidez.</p>
+          </div>
+          <div style={anim(0.75)}><a href="#contact" className="hero-btn btn-dark">REJOINDRE LE RÉSEAU</a></div>
+          <div className="hero-stat" style={anim(0.9)}>
+            <div><span className="stat-num">12</span><span className="stat-label">Critères de qualification</span></div>
+            <div><span className="stat-num">100%</span><span className="stat-label">Gratuit pour les salons</span></div>
+          </div>
         </div>
       </div>
       <div className="hero-divider" style={{
         opacity: loaded ? 1 : 0,
+        left: dividerLeft,
         transform: loaded ? "translate(-50%,-50%) scale(1)" : "translate(-50%,-50%) scale(0)",
-        transition: "all 0.5s ease 0.6s"
+        transition: "opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s, left 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
       }}><span style={{ fontFamily: "var(--serif)" }}>×</span></div>
     </section>
   );
