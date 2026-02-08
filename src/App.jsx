@@ -87,7 +87,6 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .btn-light:hover { background: ${C.bronze}; color: var(--ink); }
 .btn-dark { color: var(--ink); border-color: var(--terre); background: transparent; }
 .btn-dark:hover { background: var(--ink); color: var(--creme); }
-.hero-divider { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 10; width: 64px; height: 64px; background: var(--terre); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 14px; color: var(--paper); box-shadow: 0 4px 24px rgba(0,0,0,0.15); transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; }
 .hero-stat { display: flex; gap: 40px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
 .hero-right .hero-stat { border-color: var(--sand); }
 .stat-num { font-family: var(--serif); font-size: 28px; display: block; }
@@ -164,22 +163,68 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .footer-links a:hover { color: var(--creme); }
 
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-side { padding: 100px 32px 60px; }
-  .hero-divider { display: none; }
-  .hero-left { min-height: 90vh; }
-  .hero-right { min-height: 70vh; }
-  .steps-grid { grid-template-columns: 1fr 1fr; }
-  .step { border-right: none; border-bottom: 1px solid var(--sand); }
-  .step-arrow { display: none; }
-  .tiers-grid { grid-template-columns: 1fr; }
-  .proof-grid { grid-template-columns: 1fr; }
-  .proof-stats { grid-template-columns: 1fr; }
-  .cta-inner { grid-template-columns: 1fr; gap: 48px; }
-  .nav { padding: 16px 24px; }
+  .hero { flex-direction: column; }
+  .hero-side { padding: 80px 24px 48px; min-height: auto; }
+  .hero-left { min-height: 100svh; }
+  .hero-right { min-height: 80svh; }
+  .hero-title { font-size: 36px; }
+  .hero-desc { font-size: 15px; line-height: 1.75; max-width: 100%; }
+  .hero-btn { padding: 16px 32px; font-size: 13px; width: 100%; text-align: center; }
+  .hero-stat { gap: 24px; flex-wrap: wrap; }
+  .stat-num { font-size: 24px; }
+
+  .nav { padding: 14px 20px; }
+  .nav-logo { font-size: 15px; letter-spacing: 2.5px; }
+  .nav-sub { font-size: 8px; }
   .nav-links a:not(.nav-cta) { display: none; }
-  .section { padding: 80px 24px; }
-  .footer { flex-direction: column; gap: 16px; text-align: center; }
+  .nav-cta { padding: 10px 20px !important; font-size: 11px !important; }
+
+  .section { padding: 64px 20px; }
+  .section-title { font-size: 28px; }
+  .section-subtitle { font-size: 14px; }
+
+  .steps-grid { grid-template-columns: 1fr; gap: 0; margin-top: 40px; }
+  .step { padding: 28px 0; border-right: none; border-bottom: 1px solid var(--sand); }
+  .step:last-child { border-bottom: none; }
+  .step-num { font-size: 36px; margin-bottom: 12px; }
+  .step-title { font-size: 17px; }
+  .step-desc { font-size: 14px; }
+  .step-arrow { display: none; }
+
+  .tiers-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+  .tier-card { padding: 32px 24px; }
+  .tier-price { font-size: 28px; }
+  .tier-features li { font-size: 14px; padding: 5px 0; }
+  .tier-ideal { font-size: 14px; }
+
+  .proof-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
+  .proof-card { padding: 28px 24px; }
+  .proof-quote { font-size: 16px; }
+  .proof-open { font-size: 48px; top: 36px; left: 14px; }
+  .proof-stats { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; padding-top: 32px; }
+  .proof-stat-num { font-size: 40px; }
+  .proof-stat-label { font-size: 14px; }
+
+  .cta-section { padding: 64px 20px; }
+  .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+  .cta-title { font-size: 28px; }
+  .cta-desc { font-size: 14px; }
+  .cta-form { padding: 28px 20px; }
+  .form-input { font-size: 16px; padding: 14px 0; }
+  .form-select { font-size: 16px; padding: 14px 0; }
+  .form-submit { padding: 18px; font-size: 13px; }
+
+  .footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 20px; }
+  .footer-links { flex-direction: column; gap: 12px; }
+  .footer-links a { font-size: 13px; }
+}
+
+@media (max-width: 400px) {
+  .hero-side { padding: 72px 18px 40px; }
+  .hero-title { font-size: 30px; }
+  .section { padding: 52px 16px; }
+  .cta-form { padding: 24px 16px; }
+  .nav { padding: 12px 16px; }
 }
 `;
 
@@ -391,15 +436,16 @@ function CTA() {
         </Reveal>
         <Reveal delay={0.2}>
           <div className="cta-form">
-            <div style={{ display: "flex", gap: "12px", marginBottom: "32px" }}>
+            <div style={{ display: "flex", gap: "8px", marginBottom: "32px" }}>
               {["marque", "salon"].map((p) => (
                 <button key={p} onClick={() => setProfile(p)} style={{
-                  flex: 1, padding: "10px",
+                  flex: 1, padding: "14px 8px",
                   background: profile === p ? C.bronze : "transparent",
                   color: profile === p ? C.ink : C.stone,
                   border: `1px solid ${profile === p ? C.bronze : "rgba(255,255,255,0.1)"}`,
-                  fontFamily: "var(--sans)", fontSize: "11px", letterSpacing: "1.5px",
+                  fontFamily: "var(--sans)", fontSize: "11px", letterSpacing: "1px",
                   fontWeight: 500, cursor: "pointer", transition: "all 0.3s", textTransform: "uppercase",
+                  WebkitTapHighlightColor: "transparent",
                 }}>{p === "marque" ? "JE SUIS UNE MARQUE" : "JE SUIS UN SALON"}</button>
               ))}
             </div>
