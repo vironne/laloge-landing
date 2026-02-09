@@ -102,13 +102,44 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .section-dark .section-subtitle { color: var(--lin); }
 .section-inner { max-width: 1160px; margin: 0 auto; }
 
-.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 64px; border-top: 1px solid var(--sand); }
-.step { padding: 40px 32px 40px 0; border-right: 1px solid var(--sand); position: relative; }
-.step:last-child { border-right: none; }
-.step-num { font-family: var(--serif); font-size: 48px; color: var(--sand); line-height: 1; margin-bottom: 20px; }
-.step-title { font-family: var(--serif); font-size: 18px; margin-bottom: 12px; }
-.step-desc { font-size: 13px; line-height: 1.7; color: var(--stone); font-weight: 300; }
-.step-arrow { position: absolute; right: -8px; top: 52px; width: 16px; height: 16px; background: var(--paper); border-right: 1px solid var(--sand); border-bottom: 1px solid var(--sand); transform: rotate(-45deg); }
+.match-visual { display: flex; align-items: center; justify-content: center; gap: 0; margin-top: 64px; position: relative; }
+.match-actor { flex: 1; max-width: 320px; padding: 40px 32px; text-align: center; position: relative; }
+.match-actor-icon { font-size: 40px; margin-bottom: 16px; display: block; opacity: 0.7; }
+.match-actor-title { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
+.match-actor-desc { font-size: 13px; color: var(--stone); font-weight: 300; line-height: 1.6; }
+.match-engine { flex: 0 0 200px; text-align: center; position: relative; z-index: 2; }
+.match-engine-circle { width: 140px; height: 140px; border-radius: 50%; background: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; position: relative; box-shadow: 0 8px 40px rgba(27,27,25,0.12); }
+.match-engine-score { font-family: var(--serif); font-size: 36px; color: ${C.bronze}; line-height: 1; }
+.match-engine-label { font-size: 9px; letter-spacing: 2px; color: var(--lin); margin-top: 6px; font-weight: 500; }
+.match-engine-title { font-family: var(--serif); font-size: 14px; color: var(--ink); margin-top: 16px; letter-spacing: 0.5px; }
+.match-line { position: absolute; top: 50%; height: 1px; background: linear-gradient(90deg, transparent, ${C.sand}, transparent); z-index: 0; }
+.match-line-left { left: 0; right: 50%; transform: translateY(-50%); }
+.match-line-right { left: 50%; right: 0; transform: translateY(-50%); }
+
+.match-criteria { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 48px; }
+.match-tag { padding: 8px 18px; font-size: 12px; letter-spacing: 0.5px; font-weight: 400; color: var(--stone); border: 1px solid var(--sand); background: var(--paper); transition: all 0.3s; }
+.match-tag:hover { border-color: ${C.bronze}; color: var(--ink); }
+
+.match-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--sand); }
+.match-bottom-num { font-family: var(--serif); font-size: 40px; color: var(--terre); }
+.match-bottom-label { font-size: 13px; color: var(--stone); margin-top: 6px; font-weight: 300; line-height: 1.5; }
+
+.match-pulse { animation: pulse 2.5s ease-in-out infinite; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 8px 40px rgba(27,27,25,0.12); }
+  50% { box-shadow: 0 8px 40px rgba(27,27,25,0.12), 0 0 0 12px rgba(158,139,110,0.08); }
+}
+
+.match-tags-anim .match-tag { opacity: 0; transform: translateY(10px); animation: tagIn 0.4s ease forwards; }
+.match-tags-anim .match-tag:nth-child(1) { animation-delay: 0s; }
+.match-tags-anim .match-tag:nth-child(2) { animation-delay: 0.06s; }
+.match-tags-anim .match-tag:nth-child(3) { animation-delay: 0.12s; }
+.match-tags-anim .match-tag:nth-child(4) { animation-delay: 0.18s; }
+.match-tags-anim .match-tag:nth-child(5) { animation-delay: 0.24s; }
+.match-tags-anim .match-tag:nth-child(6) { animation-delay: 0.30s; }
+.match-tags-anim .match-tag:nth-child(7) { animation-delay: 0.36s; }
+.match-tags-anim .match-tag:nth-child(8) { animation-delay: 0.42s; }
+@keyframes tagIn { to { opacity: 1; transform: translateY(0); } }
 
 .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
 .tier-card { padding: 40px 32px; position: relative; border: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s, border-color 0.3s; }
@@ -183,13 +214,16 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
   .section-title { font-size: 28px; }
   .section-subtitle { font-size: 14px; }
 
-  .steps-grid { grid-template-columns: 1fr; gap: 0; margin-top: 40px; }
-  .step { padding: 28px 0; border-right: none; border-bottom: 1px solid var(--sand); }
-  .step:last-child { border-bottom: none; }
-  .step-num { font-size: 36px; margin-bottom: 12px; }
-  .step-title { font-size: 17px; }
-  .step-desc { font-size: 14px; }
-  .step-arrow { display: none; }
+  .match-visual { flex-direction: column; gap: 0; margin-top: 40px; }
+  .match-actor { max-width: 100%; padding: 24px 0; }
+  .match-engine { flex: none; width: 100%; margin: 8px 0; }
+  .match-engine-circle { width: 110px; height: 110px; }
+  .match-engine-score { font-size: 28px; }
+  .match-line { display: none; }
+  .match-criteria { margin-top: 32px; }
+  .match-tag { font-size: 12px; padding: 7px 14px; }
+  .match-bottom { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; padding-top: 32px; }
+  .match-bottom-num { font-size: 36px; }
 
   .tiers-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
   .tier-card { padding: 32px 24px; }
@@ -236,7 +270,7 @@ function Nav() {
         <div className="nav-sub">CONCIERGERIE BEAUTÉ</div>
       </div>
       <div className="nav-links">
-        <a href="#methode">Méthode</a>
+        <a href="#methode">Matching</a>
         <a href="#offre">Offre</a>
         <a href="#resultats">Résultats</a>
         <a href="#contact" className="nav-cta">PRENDRE RDV</a>
@@ -304,29 +338,63 @@ function Hero() {
   );
 }
 
-function HowItWorks() {
-  const steps = [
-    { num: "01", title: "Recruter", desc: "Nous qualifions les salons selon 12 critères : CA, spécialités, positionnement, marques actuelles." },
-    { num: "02", title: "Scorer", desc: "Notre IA calcule un score d'affinité (0-100) entre chaque salon et votre marque." },
-    { num: "03", title: "Connecter", desc: "Nous présentons votre marque aux salons les plus compatibles, en tiers de confiance." },
-    { num: "04", title: "Convertir", desc: "Vous recevez des leads chauds. Dashboard temps réel. ROI mesurable." },
+function Matching() {
+  const [ref, visible] = useReveal(0.1);
+  const tags = [
+    "Positionnement", "Zone géographique", "Spécialités", "Chiffre d'affaires",
+    "Marques actuelles", "Taille du salon", "Clientèle cible", "Potentiel de croissance",
   ];
   return (
     <section className="section" id="methode">
       <div className="section-inner">
         <Reveal>
-          <div className="section-label">COMMENT ÇA FONCTIONNE</div>
-          <h2 className="section-title">Le salon choisit.<br /><em>La marque se présente.</em></h2>
-          <p className="section-subtitle">Nous représentons le salon, pas la marque. C'est ce qui rend nos leads authentiques.</p>
+          <div className="section-label">NOTRE TECHNOLOGIE</div>
+          <h2 className="section-title">Un algorithme de matching<br /><em>qui crée les bonnes rencontres.</em></h2>
+          <p className="section-subtitle">Notre système analyse une multitude de critères pour chaque salon et chaque marque, puis calcule un score d'affinité unique. Résultat : des connexions pertinentes pour les deux parties.</p>
         </Reveal>
-        <div className="steps-grid">
-          {steps.map((s, i) => (
+
+        <Reveal delay={0.15}>
+          <div className="match-visual">
+            <div className="match-line match-line-left" />
+            <div className="match-line match-line-right" />
+            <div className="match-actor">
+              <span className="match-actor-icon" role="img" aria-label="marque">&#9670;</span>
+              <div className="match-actor-title">La Marque</div>
+              <div className="match-actor-desc">Ses gammes, son positionnement, ses zones cibles, son historique distribution.</div>
+            </div>
+            <div className="match-engine">
+              <div className="match-engine-circle match-pulse">
+                <div className="match-engine-score">87</div>
+                <div className="match-engine-label">SCORE D'AFFINITÉ</div>
+              </div>
+              <div className="match-engine-title">Algorithme La Loge</div>
+            </div>
+            <div className="match-actor">
+              <span className="match-actor-icon" role="img" aria-label="salon">&#9676;</span>
+              <div className="match-actor-title">Le Salon</div>
+              <div className="match-actor-desc">Son CA, ses spécialités, sa clientèle, ses marques actuelles, ses attentes.</div>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.3}>
+          <div ref={ref} className={`match-criteria ${visible ? "match-tags-anim" : ""}`}>
+            {tags.map((t, i) => (
+              <span className="match-tag" key={i}>{t}</span>
+            ))}
+          </div>
+        </Reveal>
+
+        <div className="match-bottom">
+          {[
+            { num: "0–100", label: "Score d'affinité calculé\npour chaque paire" },
+            { num: "Multi-critères", label: "Analyse croisée de\ndizaines de paramètres" },
+            { num: "Temps réel", label: "Mise à jour continue\nselon l'évolution du marché" },
+          ].map((s, i) => (
             <Reveal key={i} delay={i * 0.1}>
-              <div className="step">
-                <div className="step-num">{s.num}</div>
-                <div className="step-title">{s.title}</div>
-                <div className="step-desc">{s.desc}</div>
-                {i < 3 && <div className="step-arrow" />}
+              <div>
+                <div className="match-bottom-num">{s.num}</div>
+                <div className="match-bottom-label" style={{ whiteSpace: "pre-line" }}>{s.label}</div>
               </div>
             </Reveal>
           ))}
@@ -514,7 +582,7 @@ export default function App() {
       <style>{css}</style>
       <Nav />
       <Hero />
-      <HowItWorks />
+      <Matching />
       <Tiers />
       <SocialProof />
       <CTA />
