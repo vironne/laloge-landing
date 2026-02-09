@@ -341,7 +341,7 @@ function Hero() {
 function Matching() {
   const [ref, visible] = useReveal(0.1);
   const tags = [
-    "Positionnement", "Zone géographique", "Spécialités", "Chiffre d'affaires",
+    "Positionnement", "Zone géographique", "Spécialités",
     "Marques actuelles", "Taille du salon", "Clientèle cible", "Potentiel de croissance",
   ];
   return (
