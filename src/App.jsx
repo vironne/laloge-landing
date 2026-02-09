@@ -406,9 +406,9 @@ function Matching() {
 
 function Tiers() {
   const tiers = [
-    { name: "INTELLIGENCE", price: "€49", unit: "par profil salon", features: ["Profils enrichis (CA, spécialités, marques)", "Score d'affinité IA avec votre marque", "Export CSV pour intégration CRM"], ideal: "Alimenter votre force de vente en data actionnable" },
-    { name: "CONCIERGE", price: "€249", unit: "par lead qualifié", featured: true, features: ["Tout Intelligence inclus", "Mise en relation personnalisée", "Salons avec intérêt actif confirmé", "RDV qualifié livré"], ideal: "Lancer une gamme, pénétrer un territoire" },
-    { name: "PARTNERSHIP", price: "15%", unit: "de commission", features: ["Tout Concierge inclus", "Accompagnement jusqu'à la signature", "Account manager dédié", "Suivi post-signature 6 mois"], ideal: "Déploiement national, partenariat structurant" },
+    { name: "INTELLIGENCE", price: "Sur devis", unit: "adapté à vos besoins", features: ["Profils enrichis (spécialités, marques)", "Score d'affinité IA avec votre marque", "Export CSV pour intégration CRM"], ideal: "Alimenter votre force de vente en data actionnable" },
+    { name: "CONCIERGE", price: "Sur devis", unit: "adapté à vos objectifs", featured: true, features: ["Tout Intelligence inclus", "Mise en relation personnalisée", "Salons avec intérêt actif confirmé", "RDV qualifié livré"], ideal: "Lancer une gamme, pénétrer un territoire" },
+    { name: "PARTNERSHIP", price: "Sur devis", unit: "adapté à l'ambition", features: ["Tout Concierge inclus", "Accompagnement jusqu'à la signature", "Account manager dédié", "Suivi post-signature 6 mois"], ideal: "Déploiement national, partenariat structurant" },
   ];
   return (
     <section className="section section-dark noise" id="offre">
@@ -462,7 +462,7 @@ function SocialProof() {
           {[
             { num: "5,1×", label: "ROI moyen constaté\nsur l'offre Concierge" },
             { num: "42%", label: "Taux de conversion\ndes leads qualifiés" },
-            { num: "€249", label: "Coût par lead\nvs €8 400 terrain" },
+            { num: "÷10", label: "Coût par lead\nvs prospection terrain" },
           ].map((s, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <div>
