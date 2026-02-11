@@ -51,6 +51,7 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* ── Nav ── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -65,33 +66,21 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .nav-cta { background: var(--ink) !important; color: var(--creme) !important; padding: 10px 24px !important; font-size: 12px !important; letter-spacing: 1px !important; font-weight: 500 !important; border: none; cursor: pointer; transition: all 0.25s; }
 .nav-cta:hover { background: var(--terre) !important; }
 
-.hero { min-height: 100vh; display: flex; position: relative; }
-.hero-side { display: flex; flex-direction: column; justify-content: center; padding: 140px 64px 80px; position: relative; overflow: hidden; flex: 1; transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
-.hero-side .hero-content { transition: opacity 0.4s ease, transform 0.4s ease; }
-.hero-left { background: var(--ink); color: var(--creme); }
-.hero-right { background: var(--paper); color: var(--ink); }
-@media (min-width: 901px) {
-  .hero:hover .hero-side { flex: 0.6; }
-  .hero:hover .hero-side .hero-content { opacity: 0.3; transform: scale(0.96); }
-  .hero .hero-side:hover { flex: 1.4; }
-  .hero .hero-side:hover .hero-content { opacity: 1 !important; transform: scale(1) !important; }
-}
-.hero-label { font-size: 10px; letter-spacing: 3px; font-weight: 500; margin-bottom: 24px; }
-.hero-left .hero-label { color: ${C.bronze}; }
-.hero-right .hero-label { color: var(--terre); opacity: 0.6; }
-.hero-title { font-family: var(--serif); font-size: clamp(32px, 4vw, 48px); line-height: 1.15; margin-bottom: 20px; font-weight: 400; }
+/* ── Hero ── */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 140px 24px 80px; position: relative; overflow: hidden; background: var(--ink); color: var(--creme); }
+.hero-label { font-size: 11px; letter-spacing: 4px; font-weight: 500; color: ${C.bronze}; margin-bottom: 28px; }
+.hero-title { font-family: var(--serif); font-size: clamp(36px, 5.5vw, 64px); line-height: 1.12; margin-bottom: 24px; font-weight: 400; max-width: 800px; }
 .hero-title em { font-style: italic; color: ${C.bronze}; }
-.hero-desc { font-size: 15px; line-height: 1.7; opacity: 0.75; max-width: 400px; margin-bottom: 36px; font-weight: 300; }
-.hero-btn { display: inline-block; padding: 14px 36px; font-family: var(--sans); font-size: 12px; letter-spacing: 1.5px; font-weight: 500; text-decoration: none; border: 1px solid; cursor: pointer; transition: all 0.3s; }
-.btn-light { color: var(--creme); border-color: ${C.bronze}; background: transparent; }
-.btn-light:hover { background: ${C.bronze}; color: var(--ink); }
-.btn-dark { color: var(--ink); border-color: var(--terre); background: transparent; }
-.btn-dark:hover { background: var(--ink); color: var(--creme); }
-.hero-stat { display: flex; gap: 40px; margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); }
-.hero-right .hero-stat { border-color: var(--sand); }
-.stat-num { font-family: var(--serif); font-size: 28px; display: block; }
-.stat-label { font-size: 11px; opacity: 0.5; margin-top: 4px; letter-spacing: 0.5px; }
+.hero-desc { font-size: 17px; line-height: 1.8; color: var(--lin); max-width: 560px; margin: 0 auto 40px; font-weight: 300; }
+.hero-btn { display: inline-block; padding: 16px 40px; font-family: var(--sans); font-size: 12px; letter-spacing: 1.5px; font-weight: 500; text-decoration: none; border: 1px solid ${C.bronze}; color: var(--creme); background: transparent; cursor: pointer; transition: all 0.3s; }
+.hero-btn:hover { background: ${C.bronze}; color: var(--ink); }
+.hero-btn-secondary { margin-left: 16px; border-color: rgba(255,255,255,0.15); color: var(--lin); }
+.hero-btn-secondary:hover { border-color: var(--lin); background: transparent; color: var(--creme); }
+.hero-stats { display: flex; gap: 48px; margin-top: 56px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+.stat-num { font-family: var(--serif); font-size: 28px; display: block; color: ${C.bronze}; }
+.stat-label { font-size: 11px; color: var(--lin); opacity: 0.7; margin-top: 4px; letter-spacing: 0.5px; }
 
+/* ── Sections ── */
 .section { padding: 120px 48px; position: relative; }
 .section-dark { background: var(--ink); color: var(--creme); }
 .section-creme { background: var(--creme); }
@@ -102,60 +91,37 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .section-dark .section-subtitle { color: var(--lin); }
 .section-inner { max-width: 1160px; margin: 0 auto; }
 
-.match-visual { display: flex; align-items: center; justify-content: center; gap: 0; margin-top: 64px; position: relative; }
-.match-actor { flex: 1; max-width: 320px; padding: 40px 32px; text-align: center; position: relative; }
-.match-actor-icon { font-size: 40px; margin-bottom: 16px; display: block; opacity: 0.7; }
-.match-actor-title { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
-.match-actor-desc { font-size: 13px; color: var(--stone); font-weight: 300; line-height: 1.6; }
-.match-engine { flex: 0 0 200px; text-align: center; position: relative; z-index: 2; }
-.match-engine-circle { width: 140px; height: 140px; border-radius: 50%; background: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; position: relative; box-shadow: 0 8px 40px rgba(27,27,25,0.12); }
-.match-engine-score { font-family: var(--serif); font-size: 36px; color: ${C.bronze}; line-height: 1; }
-.match-engine-label { font-size: 9px; letter-spacing: 2px; color: var(--lin); margin-top: 6px; font-weight: 500; }
-.match-engine-title { font-family: var(--serif); font-size: 14px; color: var(--ink); margin-top: 16px; letter-spacing: 0.5px; }
-.match-line { position: absolute; top: 50%; height: 1px; background: linear-gradient(90deg, transparent, ${C.sand}, transparent); z-index: 0; }
-.match-line-left { left: 0; right: 50%; transform: translateY(-50%); }
-.match-line-right { left: 50%; right: 0; transform: translateY(-50%); }
+/* ── Pain Points ── */
+.pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 64px; }
+.pain-card { padding: 36px 28px; border: 1px solid var(--sand); background: var(--paper); position: relative; transition: transform 0.3s, border-color 0.3s; }
+.pain-card:hover { transform: translateY(-4px); border-color: ${C.bronze}; }
+.pain-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+.pain-title { font-family: var(--serif); font-size: 19px; margin-bottom: 10px; line-height: 1.3; }
+.pain-desc { font-size: 14px; color: var(--stone); font-weight: 300; line-height: 1.65; }
 
-.match-criteria { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 48px; }
-.match-tag { padding: 8px 18px; font-size: 12px; letter-spacing: 0.5px; font-weight: 400; color: var(--stone); border: 1px solid var(--sand); background: var(--paper); transition: all 0.3s; }
-.match-tag:hover { border-color: ${C.bronze}; color: var(--ink); }
+/* ── How it works ── */
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 64px; position: relative; }
+.how-step { text-align: center; padding: 0 16px; }
+.how-num { font-family: var(--serif); font-size: 48px; color: ${C.bronze}; line-height: 1; margin-bottom: 16px; }
+.how-step-title { font-family: var(--serif); font-size: 20px; margin-bottom: 10px; }
+.how-step-desc { font-size: 14px; color: var(--lin); font-weight: 300; line-height: 1.65; }
+.how-connector { position: absolute; top: 36px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent); }
+.how-connector-1 { left: 33%; right: 50%; }
+.how-connector-2 { left: 50%; right: 33%; }
 
-.match-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--sand); }
-.match-bottom-num { font-family: var(--serif); font-size: 40px; color: var(--terre); }
-.match-bottom-label { font-size: 13px; color: var(--stone); margin-top: 6px; font-weight: 300; line-height: 1.5; }
+/* ── Benefits ── */
+.benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 64px; }
+.benefit-card { display: flex; gap: 20px; padding: 32px 28px; border: 1px solid var(--sand); background: var(--white); transition: transform 0.3s, border-color 0.3s; }
+.benefit-card:hover { transform: translateY(-3px); border-color: ${C.bronze}; }
+.benefit-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+.benefit-title { font-family: var(--serif); font-size: 17px; margin-bottom: 6px; }
+.benefit-desc { font-size: 13px; color: var(--stone); font-weight: 300; line-height: 1.6; }
+.benefit-highlight { margin-top: 64px; text-align: center; padding: 48px 32px; background: var(--ink); color: var(--creme); }
+.benefit-highlight-title { font-family: var(--serif); font-size: 28px; margin-bottom: 12px; }
+.benefit-highlight-title em { font-style: italic; color: ${C.bronze}; }
+.benefit-highlight-desc { font-size: 15px; color: var(--lin); font-weight: 300; }
 
-.match-pulse { animation: pulse 2.5s ease-in-out infinite; }
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 8px 40px rgba(27,27,25,0.12); }
-  50% { box-shadow: 0 8px 40px rgba(27,27,25,0.12), 0 0 0 12px rgba(158,139,110,0.08); }
-}
-
-.match-tags-anim .match-tag { opacity: 0; transform: translateY(10px); animation: tagIn 0.4s ease forwards; }
-.match-tags-anim .match-tag:nth-child(1) { animation-delay: 0s; }
-.match-tags-anim .match-tag:nth-child(2) { animation-delay: 0.06s; }
-.match-tags-anim .match-tag:nth-child(3) { animation-delay: 0.12s; }
-.match-tags-anim .match-tag:nth-child(4) { animation-delay: 0.18s; }
-.match-tags-anim .match-tag:nth-child(5) { animation-delay: 0.24s; }
-.match-tags-anim .match-tag:nth-child(6) { animation-delay: 0.30s; }
-.match-tags-anim .match-tag:nth-child(7) { animation-delay: 0.36s; }
-.match-tags-anim .match-tag:nth-child(8) { animation-delay: 0.42s; }
-@keyframes tagIn { to { opacity: 1; transform: translateY(0); } }
-
-.tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
-.tier-card { padding: 40px 32px; position: relative; border: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s, border-color 0.3s; }
-.tier-card:hover { transform: translateY(-4px); border-color: ${C.bronze}; }
-.tier-featured { background: var(--terre); border-color: ${C.bronze}; }
-.tier-badge { font-size: 9px; letter-spacing: 2.5px; font-weight: 600; margin-bottom: 20px; opacity: 0.5; }
-.tier-featured .tier-badge { opacity: 0.8; color: var(--creme); }
-.tier-price { font-family: var(--serif); font-size: 32px; margin-bottom: 8px; }
-.tier-unit { font-size: 13px; opacity: 0.5; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.tier-featured .tier-unit { border-color: rgba(255,255,255,0.15); }
-.tier-features { list-style: none; }
-.tier-features li { font-size: 13px; line-height: 1.6; padding: 6px 0; font-weight: 300; opacity: 0.75; padding-left: 16px; position: relative; }
-.tier-features li::before { content: '—'; position: absolute; left: 0; color: ${C.bronze}; }
-.tier-ideal { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); font-style: italic; font-family: var(--serif); font-size: 13px; opacity: 0.6; }
-.tier-featured .tier-ideal { border-color: rgba(255,255,255,0.15); opacity: 0.8; }
-
+/* ── Social proof ── */
 .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 64px; }
 .proof-card { background: var(--paper); padding: 40px; position: relative; border-left: 3px solid ${C.bronze}; }
 .proof-quote { font-family: var(--serif); font-size: 18px; line-height: 1.6; color: var(--ink); margin-bottom: 24px; font-style: italic; }
@@ -166,15 +132,24 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .proof-stat-num { font-family: var(--serif); font-size: 48px; color: var(--terre); }
 .proof-stat-label { font-size: 13px; color: var(--stone); margin-top: 8px; font-weight: 300; line-height: 1.5; }
 
+/* ── FAQ ── */
+.faq-list { max-width: 720px; margin: 48px auto 0; }
+.faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+.faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 24px 0; font-family: var(--serif); font-size: 18px; color: var(--creme); background: none; border: none; cursor: pointer; text-align: left; }
+.faq-question:hover { color: ${C.bronze}; }
+.faq-arrow { font-size: 14px; color: ${C.bronze}; transition: transform 0.3s; flex-shrink: 0; margin-left: 16px; }
+.faq-arrow.open { transform: rotate(180deg); }
+.faq-answer { font-size: 14px; color: var(--lin); font-weight: 300; line-height: 1.7; padding: 0 0 24px; }
+
+/* ── CTA ── */
 .cta-section { padding: 120px 48px; background: var(--ink); color: var(--creme); position: relative; overflow: hidden; }
 .cta-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .cta-title { font-family: var(--serif); font-size: clamp(28px, 3vw, 40px); line-height: 1.2; margin-bottom: 16px; }
 .cta-title em { font-style: italic; color: ${C.bronze}; }
 .cta-desc { font-size: 15px; line-height: 1.7; color: var(--lin); font-weight: 300; margin-bottom: 32px; }
-.cta-steps { display: flex; flex-direction: column; gap: 16px; }
-.cta-step { display: flex; gap: 16px; align-items: flex-start; }
-.cta-step-num { font-family: var(--serif); font-size: 20px; color: ${C.bronze}; min-width: 28px; }
-.cta-step-text { font-size: 13px; color: var(--lin); font-weight: 300; line-height: 1.5; }
+.cta-promises { display: flex; flex-direction: column; gap: 14px; }
+.cta-promise { display: flex; gap: 14px; align-items: center; font-size: 14px; color: var(--lin); font-weight: 300; }
+.cta-promise-icon { color: ${C.bronze}; font-size: 16px; flex-shrink: 0; }
 
 .cta-form { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 48px; }
 .form-group { margin-bottom: 20px; }
@@ -186,22 +161,32 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .form-select option { background: var(--ink); color: var(--creme); }
 .form-submit { width: 100%; padding: 16px; background: ${C.bronze}; color: var(--ink); font-family: var(--sans); font-size: 12px; letter-spacing: 1.5px; font-weight: 600; border: none; cursor: pointer; margin-top: 12px; transition: all 0.3s; }
 .form-submit:hover { background: var(--creme); }
+.form-note { text-align: center; margin-top: 16px; font-size: 11px; color: var(--stone); font-weight: 300; }
 
+/* ── Brand banner ── */
+.brand-banner { padding: 64px 48px; background: var(--creme); text-align: center; }
+.brand-banner-title { font-family: var(--serif); font-size: 22px; margin-bottom: 8px; }
+.brand-banner-title em { font-style: italic; }
+.brand-banner-desc { font-size: 14px; color: var(--stone); font-weight: 300; margin-bottom: 20px; }
+.brand-banner-link { font-size: 13px; color: var(--ink); font-weight: 500; text-decoration: none; letter-spacing: 0.5px; border-bottom: 1px solid ${C.bronze}; padding-bottom: 2px; transition: color 0.2s; }
+.brand-banner-link:hover { color: var(--terre); }
+
+/* ── Footer ── */
 .footer { padding: 48px; background: ${C.charcoal}; display: flex; justify-content: space-between; align-items: center; color: var(--stone); font-size: 12px; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-logo { font-family: var(--serif); font-size: 16px; letter-spacing: 3px; color: var(--lin); }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a { color: var(--stone); text-decoration: none; font-size: 12px; transition: color 0.2s; }
 .footer-links a:hover { color: var(--creme); }
 
+/* ── Mobile ── */
 @media (max-width: 900px) {
-  .hero { flex-direction: column; }
-  .hero-side { padding: 80px 24px 48px; min-height: auto; }
-  .hero-left { min-height: 100svh; }
-  .hero-right { min-height: 80svh; }
+  .hero { padding: 100px 24px 64px; min-height: 100svh; }
   .hero-title { font-size: 36px; }
-  .hero-desc { font-size: 15px; line-height: 1.75; max-width: 100%; }
-  .hero-btn { padding: 16px 32px; font-size: 13px; width: 100%; text-align: center; }
-  .hero-stat { gap: 24px; flex-wrap: wrap; }
+  .hero-desc { font-size: 15px; max-width: 100%; }
+  .hero-btn { padding: 16px 28px; font-size: 12px; }
+  .hero-btn-secondary { margin-left: 0; margin-top: 12px; }
+  .hero-btns { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; justify-content: center; }
   .stat-num { font-size: 24px; }
 
   .nav { padding: 14px 20px; }
@@ -214,30 +199,23 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
   .section-title { font-size: 28px; }
   .section-subtitle { font-size: 14px; }
 
-  .match-visual { flex-direction: column; gap: 0; margin-top: 40px; }
-  .match-actor { max-width: 100%; padding: 24px 0; }
-  .match-engine { flex: none; width: 100%; margin: 8px 0; }
-  .match-engine-circle { width: 110px; height: 110px; }
-  .match-engine-score { font-size: 28px; }
-  .match-line { display: none; }
-  .match-criteria { margin-top: 32px; }
-  .match-tag { font-size: 12px; padding: 7px 14px; }
-  .match-bottom { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; padding-top: 32px; }
-  .match-bottom-num { font-size: 36px; }
+  .pain-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+  .pain-card { padding: 28px 24px; }
 
-  .tiers-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
-  .tier-card { padding: 32px 24px; }
-  .tier-price { font-size: 28px; }
-  .tier-features li { font-size: 14px; padding: 5px 0; }
-  .tier-ideal { font-size: 14px; }
+  .how-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
+  .how-connector { display: none; }
+
+  .benefits-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+  .benefit-card { padding: 24px 20px; }
+  .benefit-highlight { padding: 36px 24px; margin-top: 40px; }
 
   .proof-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
   .proof-card { padding: 28px 24px; }
   .proof-quote { font-size: 16px; }
   .proof-open { font-size: 48px; top: 36px; left: 14px; }
   .proof-stats { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; padding-top: 32px; }
-  .proof-stat-num { font-size: 40px; }
-  .proof-stat-label { font-size: 14px; }
+
+  .faq-question { font-size: 16px; }
 
   .cta-section { padding: 64px 20px; }
   .cta-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -248,19 +226,25 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
   .form-select { font-size: 16px; padding: 14px 0; }
   .form-submit { padding: 18px; font-size: 13px; }
 
+  .brand-banner { padding: 48px 20px; }
+
   .footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 20px; }
   .footer-links { flex-direction: column; gap: 12px; }
   .footer-links a { font-size: 13px; }
 }
 
 @media (max-width: 400px) {
-  .hero-side { padding: 72px 18px 40px; }
+  .hero { padding: 88px 18px 48px; }
   .hero-title { font-size: 30px; }
   .section { padding: 52px 16px; }
   .cta-form { padding: 24px 16px; }
   .nav { padding: 12px 16px; }
 }
 `;
+
+/* ────────────────────────────────────────────
+   COMPONENTS
+   ──────────────────────────────────────────── */
 
 function Nav() {
   return (
@@ -270,10 +254,10 @@ function Nav() {
         <div className="nav-sub">CONCIERGERIE BEAUTÉ</div>
       </div>
       <div className="nav-links">
-        <a href="#methode">Matching</a>
-        <a href="#offre">Offre</a>
+        <a href="#probleme">Le problème</a>
+        <a href="#methode">Comment ça marche</a>
         <a href="#resultats">Résultats</a>
-        <a href="#contact" className="nav-cta">PRENDRE RDV</a>
+        <a href="#contact" className="nav-cta">REJOINDRE LA LOGE</a>
       </div>
     </nav>
   );
@@ -281,8 +265,6 @@ function Nav() {
 
 function Hero() {
   const [loaded, setLoaded] = useState(false);
-  const [hovered, setHovered] = useState(null); // "left" | "right" | null
-  const heroRef = useRef(null);
   useEffect(() => { setTimeout(() => setLoaded(true), 100); }, []);
   const anim = (d) => ({
     opacity: loaded ? 1 : 0,
@@ -290,111 +272,132 @@ function Hero() {
     transition: `opacity 0.8s ease ${d}s, transform 0.8s ease ${d}s`,
   });
 
-  const dividerLeft = hovered === "left" ? "70%" : hovered === "right" ? "30%" : "50%";
+  return (
+    <section className="hero noise">
+      <div style={anim(0.2)}><div className="hero-label">POUR LES SALONS QUI VEULENT PLUS</div></div>
+      <div style={anim(0.35)}>
+        <h1 className="hero-title">
+          Arrêtez de subir vos marques.<br />
+          <em>Choisissez-les.</em>
+        </h1>
+      </div>
+      <div style={anim(0.5)}>
+        <p className="hero-desc">
+          Accédez aux marques premium qui correspondent à votre salon,
+          à vos conditions. Sans attendre qu'un commercial daigne passer.
+          Gratuit. Sans engagement.
+        </p>
+      </div>
+      <div style={anim(0.65)} className="hero-btns">
+        <a href="#contact" className="hero-btn">REJOINDRE LE RÉSEAU</a>
+        <a href="#probleme" className="hero-btn hero-btn-secondary">COMPRENDRE L'APPROCHE</a>
+      </div>
+      <div className="hero-stats" style={anim(0.8)}>
+        <div><span className="stat-num">100%</span><span className="stat-label">Gratuit pour les salons</span></div>
+        <div><span className="stat-num">0</span><span className="stat-label">Engagement minimum</span></div>
+        <div><span className="stat-num">50+</span><span className="stat-label">Marques partenaires</span></div>
+      </div>
+    </section>
+  );
+}
+
+function PainPoints() {
+  const pains = [
+    {
+      icon: "🔒",
+      title: "Les meilleures conditions ? Réservées aux gros.",
+      desc: "Remises, animations, mobilier, exclusivités… Les grands groupes gardent le meilleur pour les chaînes et les franchises. Vous, vous prenez ce qui reste.",
+    },
+    {
+      icon: "👻",
+      title: "Votre commercial a disparu ? Normal.",
+      desc: "Vous dépendez d'un représentant de zone. S'il ne passe pas, vous n'existez pas. Aucune initiative possible de votre côté pour accéder à une nouvelle marque.",
+    },
+    {
+      icon: "📱",
+      title: "10K abonnés Instagram, 0 reconnaissance.",
+      desc: "Vous faites rayonner la marque sur les réseaux, vous formez vos équipes, vous gagnez des prix… mais vous êtes traité exactement comme le salon d'à côté qui ne fait rien.",
+    },
+    {
+      icon: "📦",
+      title: "Minimums de commande délirants.",
+      desc: "Pour tester une nouvelle gamme, on vous demande 2 000€ de stock minimum. Résultat : vous restez avec les mêmes produits depuis 5 ans.",
+    },
+    {
+      icon: "🔗",
+      title: "Captif d'un seul fournisseur.",
+      desc: "Mobilier offert en échange de 3 ans d'exclusivité. Vous aimeriez diversifier, mais vous êtes pieds et poings liés. Vous ne savez même pas ce qui existe d'autre.",
+    },
+    {
+      icon: "💸",
+      title: "Vos marges fondent, pas les leurs.",
+      desc: "Les marques imposent des PVC avec des marges faibles. Et pendant ce temps, vos clients achètent les mêmes produits sur Amazon. Vous êtes court-circuité.",
+    },
+  ];
 
   return (
-    <section className="hero" ref={heroRef}>
-      <div
-        className="hero-side hero-left noise"
-        onMouseEnter={() => setHovered("left")}
-        onMouseLeave={() => setHovered(null)}
-      >
-        <div className="hero-content">
-          <div style={anim(0.2)}><div className="hero-label">POUR LES MARQUES</div></div>
-          <div style={anim(0.35)}>
-            <h1 className="hero-title">Accédez aux<br />meilleurs salons<br /><em>d'Europe.</em></h1>
-          </div>
-          <div style={anim(0.5)}>
-            <p className="hero-desc">Des leads qualifiés, intentionnistes, scorés par IA. Zéro coût fixe. Vous ne payez qu'au résultat.</p>
-          </div>
-          <div style={anim(0.65)}><a href="#offre" className="hero-btn btn-light">DÉCOUVRIR L'OFFRE</a></div>
-          <div className="hero-stat" style={anim(0.8)}>
-            <div><span className="stat-num">78 Md€</span><span className="stat-label">Marché européen</span></div>
-            <div><span className="stat-num">400K+</span><span className="stat-label">Salons en Europe</span></div>
-          </div>
-        </div>
-      </div>
-      <div
-        className="hero-side hero-right noise"
-        onMouseEnter={() => setHovered("right")}
-        onMouseLeave={() => setHovered(null)}
-      >
-        <div className="hero-content">
-          <div style={anim(0.3)}><div className="hero-label">POUR LES SALONS</div></div>
-          <div style={anim(0.45)}>
-            <h1 className="hero-title">Choisissez les<br />marques qui vous<br /><em>correspondent.</em></h1>
-          </div>
-          <div style={anim(0.6)}>
-            <p className="hero-desc" style={{ color: C.stone }}>Recevez des propositions de marques premium sélectionnées pour vous. Gratuit. Sans engagement. Vous décidez.</p>
-          </div>
-          <div style={anim(0.75)}><a href="#contact" className="hero-btn btn-dark">REJOINDRE LE RÉSEAU</a></div>
-          <div className="hero-stat" style={anim(0.9)}>
-            <div><span className="stat-num">12</span><span className="stat-label">Critères de qualification</span></div>
-            <div><span className="stat-num">100%</span><span className="stat-label">Gratuit pour les salons</span></div>
-          </div>
+    <section className="section" id="probleme">
+      <div className="section-inner">
+        <Reveal>
+          <div className="section-label">LE CONSTAT</div>
+          <h2 className="section-title">Le système actuel est fait<br /><em>contre vous.</em></h2>
+          <p className="section-subtitle">Vous êtes au cœur de la beauté. Vous conseillez, vous prescrivez, vous fidélisez. Mais les marques vous traitent comme un point de vente interchangeable.</p>
+        </Reveal>
+        <div className="pain-grid">
+          {pains.map((p, i) => (
+            <Reveal key={i} delay={i * 0.08}>
+              <div className="pain-card">
+                <span className="pain-icon">{p.icon}</span>
+                <div className="pain-title">{p.title}</div>
+                <div className="pain-desc">{p.desc}</div>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function Matching() {
-  const [ref, visible] = useReveal(0.1);
-  const tags = [
-    "Positionnement", "Zone géographique", "Spécialités",
-    "Marques actuelles", "Taille du salon", "Clientèle cible", "Potentiel de croissance",
-  ];
+function HowItWorks() {
   return (
-    <section className="section" id="methode">
+    <section className="section section-dark noise" id="methode">
       <div className="section-inner">
         <Reveal>
-          <div className="section-label">NOTRE TECHNOLOGIE</div>
-          <h2 className="section-title">Un algorithme de matching<br /><em>qui crée les bonnes rencontres.</em></h2>
-          <p className="section-subtitle">Notre système analyse une multitude de critères pour chaque salon et chaque marque, puis calcule un score d'affinité unique. Résultat : des connexions pertinentes pour les deux parties.</p>
+          <div className="section-label">COMMENT ÇA MARCHE</div>
+          <h2 className="section-title" style={{ color: C.creme }}>
+            Trois étapes.<br /><em>Vous décidez à chaque fois.</em>
+          </h2>
+          <p className="section-subtitle">
+            La Loge analyse votre salon, identifie les marques qui vous correspondent vraiment,
+            et vous les présente. Vous choisissez. Jamais l'inverse.
+          </p>
         </Reveal>
-
-        <Reveal delay={0.15}>
-          <div className="match-visual">
-            <div className="match-line match-line-left" />
-            <div className="match-line match-line-right" />
-            <div className="match-actor">
-              <span className="match-actor-icon" role="img" aria-label="marque">&#9670;</span>
-              <div className="match-actor-title">La Marque</div>
-              <div className="match-actor-desc">Ses gammes, son positionnement, ses zones cibles, son historique distribution.</div>
-            </div>
-            <div className="match-engine">
-              <div className="match-engine-circle match-pulse">
-                <div className="match-engine-score">87</div>
-                <div className="match-engine-label">SCORE D'AFFINITÉ</div>
-              </div>
-              <div className="match-engine-title">Algorithme La Loge</div>
-            </div>
-            <div className="match-actor">
-              <span className="match-actor-icon" role="img" aria-label="salon">&#9676;</span>
-              <div className="match-actor-title">Le Salon</div>
-              <div className="match-actor-desc">Son CA, ses spécialités, sa clientèle, ses marques actuelles, ses attentes.</div>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.3}>
-          <div ref={ref} className={`match-criteria ${visible ? "match-tags-anim" : ""}`}>
-            {tags.map((t, i) => (
-              <span className="match-tag" key={i}>{t}</span>
-            ))}
-          </div>
-        </Reveal>
-
-        <div className="match-bottom">
+        <div className="how-grid">
+          <div className="how-connector how-connector-1" />
+          <div className="how-connector how-connector-2" />
           {[
-            { num: "0–100", label: "Score d'affinité calculé\npour chaque paire" },
-            { num: "Multi-critères", label: "Analyse croisée de\ndizaines de paramètres" },
-            { num: "Temps réel", label: "Mise à jour continue\nselon l'évolution du marché" },
+            {
+              num: "01",
+              title: "Votre profil salon",
+              desc: "On analyse votre positionnement, vos spécialités, votre clientèle, vos marques actuelles et vos ambitions. 5 minutes, en ligne.",
+            },
+            {
+              num: "02",
+              title: "Le matching intelligent",
+              desc: "Notre algorithme croise vos critères avec ceux des marques partenaires et calcule un score d'affinité. Seules les marques pertinentes apparaissent.",
+            },
+            {
+              num: "03",
+              title: "Vous choisissez",
+              desc: "Vous recevez des propositions personnalisées avec les conditions associées. Vous acceptez celles qui vous intéressent. Rien de plus.",
+            },
           ].map((s, i) => (
-            <Reveal key={i} delay={i * 0.1}>
-              <div>
-                <div className="match-bottom-num">{s.num}</div>
-                <div className="match-bottom-label" style={{ whiteSpace: "pre-line" }}>{s.label}</div>
+            <Reveal key={i} delay={i * 0.12}>
+              <div className="how-step">
+                <div className="how-num">{s.num}</div>
+                <div className="how-step-title">{s.title}</div>
+                <div className="how-step-desc">{s.desc}</div>
               </div>
             </Reveal>
           ))}
@@ -404,32 +407,69 @@ function Matching() {
   );
 }
 
-function Tiers() {
-  const tiers = [
-    { name: "INTELLIGENCE", price: "Sur devis", unit: "adapté à vos besoins", features: ["Profils enrichis (spécialités, marques)", "Score d'affinité IA avec votre marque", "Export CSV pour intégration CRM"], ideal: "Alimenter votre force de vente en data actionnable" },
-    { name: "CONCIERGE", price: "Sur devis", unit: "adapté à vos objectifs", featured: true, features: ["Tout Intelligence inclus", "Mise en relation personnalisée", "Salons avec intérêt actif confirmé", "RDV qualifié livré"], ideal: "Lancer une gamme, pénétrer un territoire" },
-    { name: "PARTNERSHIP", price: "Sur devis", unit: "adapté à l'ambition", features: ["Tout Concierge inclus", "Accompagnement jusqu'à la signature", "Account manager dédié", "Suivi post-signature 6 mois"], ideal: "Déploiement national, partenariat structurant" },
+function Benefits() {
+  const benefits = [
+    {
+      icon: "✦",
+      title: "Marques premium accessibles",
+      desc: "Accédez à des marques niches et premium habituellement réservées aux grands réseaux. Davines, Oribe, Kevin Murphy… sans attendre un démarchage.",
+    },
+    {
+      icon: "✦",
+      title: "Conditions négociées pour vous",
+      desc: "La Loge négocie des conditions groupées. Vous bénéficiez de tarifs, d'animations et de support habituellement réservés aux chaînes.",
+    },
+    {
+      icon: "✦",
+      title: "Votre présence digitale valorisée",
+      desc: "Votre engagement Instagram, vos avis Google, vos formations… tout compte dans votre score. Les marques voient enfin votre vraie valeur.",
+    },
+    {
+      icon: "✦",
+      title: "Zéro minimum, zéro engagement",
+      desc: "Testez une marque sans commander 2 000€ de stock. Pas de contrat d'exclusivité. Vous gardez votre liberté totale.",
+    },
+    {
+      icon: "✦",
+      title: "Tout au même endroit",
+      desc: "Plus besoin de courir les salons pro ou d'attendre un commercial. Découvrez, comparez et choisissez vos marques depuis un seul espace.",
+    },
+    {
+      icon: "✦",
+      title: "Un statut qui grandit avec vous",
+      desc: "Plus vous contribuez à l'image des marques, plus vos conditions s'améliorent. Votre engagement est enfin récompensé.",
+    },
   ];
+
   return (
-    <section className="section section-dark noise" id="offre">
+    <section className="section">
       <div className="section-inner">
         <Reveal>
-          <div className="section-label">OFFRE PARTENAIRES</div>
-          <h2 className="section-title" style={{ color: C.creme }}>Trois niveaux.<br /><em>Un seul objectif.</em></h2>
+          <div className="section-label">CE QUE VOUS Y GAGNEZ</div>
+          <h2 className="section-title">Le pouvoir de choisir.<br /><em>Enfin.</em></h2>
+          <p className="section-subtitle">
+            La Loge renverse le rapport de force. Ce n'est plus la marque qui vous choisit — c'est vous qui choisissez la marque.
+          </p>
         </Reveal>
-        <div className="tiers-grid">
-          {tiers.map((t, i) => (
-            <Reveal key={i} delay={i * 0.12}>
-              <div className={`tier-card ${t.featured ? "tier-featured" : ""}`}>
-                <div className="tier-badge">{t.name}</div>
-                <div className="tier-price">{t.price}</div>
-                <div className="tier-unit">{t.unit}</div>
-                <ul className="tier-features">{t.features.map((f, j) => <li key={j}>{f}</li>)}</ul>
-                <div className="tier-ideal">Idéal pour : {t.ideal}</div>
+        <div className="benefits-grid">
+          {benefits.map((b, i) => (
+            <Reveal key={i} delay={i * 0.08}>
+              <div className="benefit-card">
+                <span className="benefit-icon" style={{ color: C.bronze }}>{b.icon}</span>
+                <div>
+                  <div className="benefit-title">{b.title}</div>
+                  <div className="benefit-desc">{b.desc}</div>
+                </div>
               </div>
             </Reveal>
           ))}
         </div>
+        <Reveal delay={0.3}>
+          <div className="benefit-highlight noise">
+            <div className="benefit-highlight-title">La Loge est <em>100% gratuite</em> pour les salons.</div>
+            <div className="benefit-highlight-desc">Ce sont les marques qui financent le service. Vous, vous en profitez.</div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -440,15 +480,33 @@ function SocialProof() {
     <section className="section section-creme" id="resultats">
       <div className="section-inner">
         <Reveal>
-          <div className="section-label">RÉSULTATS</div>
-          <h2 className="section-title">Ce qu'ils <em>en disent.</em></h2>
+          <div className="section-label">TÉMOIGNAGES</div>
+          <h2 className="section-title">Ils ont rejoint <em>La Loge.</em></h2>
         </Reveal>
         <div className="proof-grid">
           {[
-            { quote: "En 3 semaines, La Loge nous a livré 50 leads qualifiés avec un score moyen de 82. Notre taux de conversion a doublé par rapport au terrain.", author: "Directrice commerciale", role: "Groupe beauté professionnelle — France" },
-            { quote: "On a enfin accès à des marques qui correspondent à notre positionnement. Pas du démarchage, une vraie sélection personnalisée.", author: "Gérante de salon", role: "12 fauteuils — Lyon" },
+            {
+              quote: "On a enfin accès à des marques qui correspondent à notre positionnement. Pas du démarchage agressif, une vraie sélection personnalisée. En 3 semaines on avait deux nouvelles marques en rayon.",
+              author: "Gérante de salon",
+              role: "12 fauteuils — Lyon",
+            },
+            {
+              quote: "J'avais l'impression de subir mes fournisseurs depuis des années. La Loge m'a permis de découvrir des marques premium que je ne connaissais même pas. Et les conditions sont meilleures qu'en direct.",
+              author: "Responsable de salon",
+              role: "6 fauteuils — Paris 11e",
+            },
+            {
+              quote: "Ce qui m'a convaincue, c'est que mon travail sur Instagram est enfin reconnu. Mon score est élevé et les marques me proposent des conditions partenaires. Ça change tout.",
+              author: "Coiffeuse indépendante",
+              role: "3 fauteuils — Bordeaux",
+            },
+            {
+              quote: "Zéro engagement, zéro minimum de commande. J'ai pu tester Davines sans risque. Mes clientes adorent et ma marge est bien meilleure qu'avec mon ancien fournisseur.",
+              author: "Gérante coloriste",
+              role: "8 fauteuils — Nantes",
+            },
           ].map((t, i) => (
-            <Reveal key={i} delay={i * 0.15}>
+            <Reveal key={i} delay={i * 0.1}>
               <div className="proof-card">
                 <span className="proof-open">"</span>
                 <p className="proof-quote">{t.quote}</p>
@@ -460,9 +518,9 @@ function SocialProof() {
         </div>
         <div className="proof-stats">
           {[
-            { num: "5,1×", label: "ROI moyen constaté\nsur l'offre Concierge" },
-            { num: "42%", label: "Taux de conversion\ndes leads qualifiés" },
-            { num: "÷10", label: "Coût par lead\nvs prospection terrain" },
+            { num: "200+", label: "Salons dans le réseau\nLa Loge en France" },
+            { num: "+35%", label: "Marge moyenne gagnée\nvs fournisseur historique" },
+            { num: "48h", label: "Délai moyen pour recevoir\nune première proposition" },
           ].map((s, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <div>
@@ -477,26 +535,86 @@ function SocialProof() {
   );
 }
 
+function FAQ() {
+  const [open, setOpen] = useState(null);
+  const faqs = [
+    {
+      q: "C'est vraiment gratuit pour mon salon ?",
+      a: "Oui, 100%. Ce sont les marques partenaires qui financent La Loge. Pour vous, l'inscription, le matching et les propositions sont entièrement gratuits. Pas de frais cachés, pas de commission sur vos commandes.",
+    },
+    {
+      q: "Quelles marques sont disponibles ?",
+      a: "Nous travaillons avec plus de 50 marques coiffure et beauté, des marques niches et premium aux marques professionnelles reconnues. Le catalogue évolue chaque mois. Vous ne verrez que les marques pertinentes pour votre profil.",
+    },
+    {
+      q: "Est-ce que je dois quitter mes marques actuelles ?",
+      a: "Pas du tout. La Loge est complémentaire. Vous pouvez ajouter de nouvelles marques en parallèle de celles que vous avez déjà. Aucune exclusivité n'est demandée.",
+    },
+    {
+      q: "Comment sont calculées les conditions ?",
+      a: "Votre score de salon prend en compte votre positionnement, vos spécialités, votre présence digitale, vos avis clients et votre engagement. Plus votre score est élevé, meilleures sont les conditions proposées par les marques.",
+    },
+    {
+      q: "Qu'est-ce que vous faites de mes données ?",
+      a: "Vos données servent uniquement au matching avec les marques. Elles ne sont jamais revendues. Les marques ne voient votre profil détaillé que si vous acceptez une mise en relation. Vous gardez le contrôle.",
+    },
+    {
+      q: "Combien de temps ça prend pour commencer ?",
+      a: "5 minutes pour créer votre profil. Vous recevez vos premières propositions de marques sous 48h. Ensuite, c'est vous qui décidez du rythme.",
+    },
+  ];
+
+  return (
+    <section className="section section-dark noise">
+      <div className="section-inner">
+        <Reveal>
+          <div className="section-label">QUESTIONS FRÉQUENTES</div>
+          <h2 className="section-title" style={{ color: C.creme }}>
+            Tout ce que vous voulez<br /><em>savoir.</em>
+          </h2>
+        </Reveal>
+        <div className="faq-list">
+          {faqs.map((f, i) => (
+            <Reveal key={i} delay={i * 0.05}>
+              <div className="faq-item">
+                <button className="faq-question" onClick={() => setOpen(open === i ? null : i)}>
+                  {f.q}
+                  <span className={`faq-arrow ${open === i ? "open" : ""}`}>▼</span>
+                </button>
+                {open === i && <div className="faq-answer">{f.a}</div>}
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CTA() {
-  const [profile, setProfile] = useState("marque");
   return (
     <section className="cta-section noise" id="contact">
       <div className="cta-inner">
         <Reveal>
           <div>
-            <div className="section-label">COMMENCER</div>
-            <h2 className="cta-title">Prêt à transformer<br />votre <em>approche salon ?</em></h2>
-            <p className="cta-desc">30 minutes pour comprendre votre marque, vos objectifs, vos zones prioritaires. Sans engagement.</p>
-            <div className="cta-steps">
+            <div className="section-label">REJOINDRE LA LOGE</div>
+            <h2 className="cta-title">
+              Prêt à reprendre le<br /><em>contrôle ?</em>
+            </h2>
+            <p className="cta-desc">
+              Créez votre profil salon en 5 minutes. Recevez vos premières propositions de marques sous 48h. Gratuit, sans engagement, vous décidez de tout.
+            </p>
+            <div className="cta-promises">
               {[
-                { n: "01", t: "Appel de découverte — 30 min" },
-                { n: "02", t: "Calibrage de l'offre sur mesure" },
-                { n: "03", t: "Pilote 30 jours — zéro engagement" },
-                { n: "04", t: "Déploiement si le pilote performe" },
-              ].map((s, i) => (
-                <div className="cta-step" key={i}>
-                  <span className="cta-step-num">{s.n}</span>
-                  <span className="cta-step-text">{s.t}</span>
+                "Inscription gratuite, sans carte bancaire",
+                "Premières propositions sous 48h",
+                "Aucun engagement, aucune exclusivité",
+                "Vos marques actuelles ne changent pas",
+                "Vos données restent confidentielles",
+              ].map((p, i) => (
+                <div className="cta-promise" key={i}>
+                  <span className="cta-promise-icon">—</span>
+                  <span>{p}</span>
                 </div>
               ))}
             </div>
@@ -504,22 +622,17 @@ function CTA() {
         </Reveal>
         <Reveal delay={0.2}>
           <div className="cta-form">
-            <div style={{ display: "flex", gap: "8px", marginBottom: "32px" }}>
-              {["marque", "salon"].map((p) => (
-                <button key={p} onClick={() => setProfile(p)} style={{
-                  flex: 1, padding: "14px 8px",
-                  background: profile === p ? C.bronze : "transparent",
-                  color: profile === p ? C.ink : C.stone,
-                  border: `1px solid ${profile === p ? C.bronze : "rgba(255,255,255,0.1)"}`,
-                  fontFamily: "var(--sans)", fontSize: "11px", letterSpacing: "1px",
-                  fontWeight: 500, cursor: "pointer", transition: "all 0.3s", textTransform: "uppercase",
-                  WebkitTapHighlightColor: "transparent",
-                }}>{p === "marque" ? "JE SUIS UNE MARQUE" : "JE SUIS UN SALON"}</button>
-              ))}
-            </div>
+            <div style={{
+              fontFamily: "var(--serif)", fontSize: "18px", color: C.creme,
+              marginBottom: "8px", textAlign: "center",
+            }}>Créez votre profil salon</div>
+            <div style={{
+              fontSize: "12px", color: C.stone, marginBottom: "32px",
+              textAlign: "center", fontWeight: 300,
+            }}>5 minutes — c'est tout ce qu'il faut.</div>
             <div className="form-group">
-              <label className="form-label">{profile === "marque" ? "NOM DE LA MARQUE" : "NOM DU SALON"}</label>
-              <input className="form-input" placeholder={profile === "marque" ? "Ex: Wella Professionals" : "Ex: Salon Élégance"} />
+              <label className="form-label">NOM DU SALON</label>
+              <input className="form-input" placeholder="Ex: Salon Élégance" />
             </div>
             <div className="form-group">
               <label className="form-label">VOTRE NOM</label>
@@ -527,35 +640,43 @@ function CTA() {
             </div>
             <div className="form-group">
               <label className="form-label">EMAIL PROFESSIONNEL</label>
-              <input className="form-input" type="email" placeholder="vous@entreprise.com" />
+              <input className="form-input" type="email" placeholder="vous@salon.com" />
             </div>
-            {profile === "marque" ? (
-              <div className="form-group">
-                <label className="form-label">OBJECTIF PRINCIPAL</label>
-                <select className="form-select">
-                  <option value="">Sélectionnez...</option>
-                  <option>Lancement de gamme</option>
-                  <option>Pénétration territoriale</option>
-                  <option>Déploiement national</option>
-                  <option>Data & intelligence salon</option>
-                </select>
-              </div>
-            ) : (
-              <div className="form-group">
-                <label className="form-label">NOMBRE DE FAUTEUILS</label>
-                <select className="form-select">
-                  <option value="">Sélectionnez...</option>
-                  <option>1-3 fauteuils</option>
-                  <option>4-8 fauteuils</option>
-                  <option>9+ fauteuils</option>
-                </select>
-              </div>
-            )}
-            <button className="form-submit">{profile === "marque" ? "RÉSERVER MON APPEL DÉCOUVERTE" : "REJOINDRE LE RÉSEAU LA LOGE"}</button>
+            <div className="form-group">
+              <label className="form-label">NOMBRE DE FAUTEUILS</label>
+              <select className="form-select">
+                <option value="">Sélectionnez...</option>
+                <option>1-3 fauteuils</option>
+                <option>4-8 fauteuils</option>
+                <option>9+ fauteuils</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <label className="form-label">CE QUI VOUS INTÉRESSE LE PLUS</label>
+              <select className="form-select">
+                <option value="">Sélectionnez...</option>
+                <option>Découvrir de nouvelles marques</option>
+                <option>Obtenir de meilleures conditions</option>
+                <option>Diversifier mes fournisseurs</option>
+                <option>Accéder à des marques premium</option>
+              </select>
+            </div>
+            <button className="form-submit">CRÉER MON PROFIL GRATUITEMENT</button>
+            <div className="form-note">Gratuit — Sans engagement — Données confidentielles</div>
           </div>
         </Reveal>
       </div>
     </section>
+  );
+}
+
+function BrandBanner() {
+  return (
+    <div className="brand-banner">
+      <div className="brand-banner-title">Vous êtes une <em>marque ?</em></div>
+      <div className="brand-banner-desc">Accédez aux meilleurs salons d'Europe grâce à notre réseau qualifié.</div>
+      <a href="mailto:marques@laloge-beaute.com" className="brand-banner-link">Contactez notre équipe partenaires →</a>
+    </div>
   );
 }
 
@@ -569,7 +690,7 @@ function Footer() {
       <div className="footer-links">
         <a href="#">Mentions légales</a>
         <a href="#">Confidentialité</a>
-        <a href="#">bonjour@laloge-beaute.com</a>
+        <a href="mailto:bonjour@laloge-beaute.com">bonjour@laloge-beaute.com</a>
       </div>
       <div style={{ fontSize: "11px" }}>© 2026 La Loge</div>
     </footer>
@@ -582,10 +703,13 @@ export default function App() {
       <style>{css}</style>
       <Nav />
       <Hero />
-      <Matching />
-      <Tiers />
+      <PainPoints />
+      <HowItWorks />
+      <Benefits />
       <SocialProof />
+      <FAQ />
       <CTA />
+      <BrandBanner />
       <Footer />
     </>
   );
