@@ -36,6 +36,13 @@ function Reveal({ children, delay = 0, className = "" }) {
 
 const css = `
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 :root {
   --serif: 'Instrument Serif', Georgia, serif;
   --sans: 'Outfit', -apple-system, sans-serif;
@@ -178,6 +185,15 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .footer-links a { color: var(--stone); text-decoration: none; font-size: 12px; transition: color 0.2s; }
 .footer-links a:hover { color: var(--creme); }
 
+/* ── Skip link ── */
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  z-index: 1000; padding: 12px 24px;
+  background: var(--ink); color: var(--creme);
+  text-decoration: none; font-family: var(--sans); font-size: 14px;
+}
+.skip-link:focus { top: 16px; }
+
 /* ── Mobile ── */
 @media (max-width: 900px) {
   .hero { padding: 100px 24px 64px; min-height: 100svh; }
@@ -248,18 +264,20 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 
 function Nav() {
   return (
-    <nav className="nav">
-      <div>
-        <div className="nav-logo">L A&nbsp;&nbsp;L O G E</div>
-        <div className="nav-sub">CONCIERGERIE BEAUTÉ</div>
-      </div>
-      <div className="nav-links">
-        <a href="#probleme">Le problème</a>
-        <a href="#methode">Comment ça marche</a>
-        <a href="#resultats">Résultats</a>
-        <a href="#contact" className="nav-cta">REJOINDRE LA LOGE</a>
-      </div>
-    </nav>
+    <header>
+      <nav className="nav" aria-label="Navigation principale">
+        <div>
+          <div className="nav-logo">L A&nbsp;&nbsp;L O G E</div>
+          <div className="nav-sub">CONCIERGERIE BEAUTÉ</div>
+        </div>
+        <div className="nav-links">
+          <a href="#probleme">Le problème</a>
+          <a href="#methode">Comment ça marche</a>
+          <a href="#resultats">Résultats</a>
+          <a href="#contact" className="nav-cta">REJOINDRE LA LOGE</a>
+        </div>
+      </nav>
+    </header>
   );
 }
 
@@ -340,7 +358,7 @@ function PainPoints() {
       <div className="section-inner">
         <Reveal>
           <div className="section-label">LE CONSTAT</div>
-          <h2 className="section-title">Le système actuel est fait<br /><em>contre vous.</em></h2>
+          <h2 id="probleme-salons" className="section-title">Le système actuel est fait<br /><em>contre vous.</em></h2>
           <p className="section-subtitle">Vous êtes au cœur de la beauté. Vous conseillez, vous prescrivez, vous fidélisez. Mais les marques vous traitent comme un point de vente interchangeable.</p>
         </Reveal>
         <div className="pain-grid">
@@ -365,7 +383,7 @@ function HowItWorks() {
       <div className="section-inner">
         <Reveal>
           <div className="section-label">COMMENT ÇA MARCHE</div>
-          <h2 className="section-title" style={{ color: C.creme }}>
+          <h2 id="comment-ca-marche" className="section-title" style={{ color: C.creme }}>
             Trois étapes.<br /><em>Vous décidez à chaque fois.</em>
           </h2>
           <p className="section-subtitle">
@@ -446,7 +464,7 @@ function Benefits() {
       <div className="section-inner">
         <Reveal>
           <div className="section-label">CE QUE VOUS Y GAGNEZ</div>
-          <h2 className="section-title">Le pouvoir de choisir.<br /><em>Enfin.</em></h2>
+          <h2 id="avantages" className="section-title">Le pouvoir de choisir.<br /><em>Enfin.</em></h2>
           <p className="section-subtitle">
             La Loge renverse le rapport de force. Ce n'est plus la marque qui vous choisit — c'est vous qui choisissez la marque.
           </p>
@@ -481,7 +499,7 @@ function SocialProof() {
       <div className="section-inner">
         <Reveal>
           <div className="section-label">TÉMOIGNAGES</div>
-          <h2 className="section-title">Ils ont rejoint <em>La Loge.</em></h2>
+          <h2 id="temoignages" className="section-title">Ils ont rejoint <em>La Loge.</em></h2>
         </Reveal>
         <div className="proof-grid">
           {[
@@ -569,7 +587,7 @@ function FAQ() {
       <div className="section-inner">
         <Reveal>
           <div className="section-label">QUESTIONS FRÉQUENTES</div>
-          <h2 className="section-title" style={{ color: C.creme }}>
+          <h2 id="faq" className="section-title" style={{ color: C.creme }}>
             Tout ce que vous voulez<br /><em>savoir.</em>
           </h2>
         </Reveal>
@@ -598,7 +616,7 @@ function CTA() {
         <Reveal>
           <div>
             <div className="section-label">REJOINDRE LA LOGE</div>
-            <h2 className="cta-title">
+            <h2 id="inscription" className="cta-title">
               Prêt à reprendre le<br /><em>contrôle ?</em>
             </h2>
             <p className="cta-desc">
@@ -631,20 +649,20 @@ function CTA() {
               textAlign: "center", fontWeight: 300,
             }}>5 minutes — c'est tout ce qu'il faut.</div>
             <div className="form-group">
-              <label className="form-label">NOM DU SALON</label>
-              <input className="form-input" placeholder="Ex: Salon Élégance" />
+              <label htmlFor="salon-name" className="form-label">NOM DU SALON</label>
+              <input id="salon-name" className="form-input" placeholder="Ex: Salon Élégance" aria-required="true" />
             </div>
             <div className="form-group">
-              <label className="form-label">VOTRE NOM</label>
-              <input className="form-input" placeholder="Prénom Nom" />
+              <label htmlFor="owner-name" className="form-label">VOTRE NOM</label>
+              <input id="owner-name" className="form-input" placeholder="Prénom Nom" aria-required="true" />
             </div>
             <div className="form-group">
-              <label className="form-label">EMAIL PROFESSIONNEL</label>
-              <input className="form-input" type="email" placeholder="vous@salon.com" />
+              <label htmlFor="email" className="form-label">EMAIL PROFESSIONNEL</label>
+              <input id="email" className="form-input" type="email" placeholder="vous@salon.com" aria-required="true" />
             </div>
             <div className="form-group">
-              <label className="form-label">NOMBRE DE FAUTEUILS</label>
-              <select className="form-select">
+              <label htmlFor="seats" className="form-label">NOMBRE DE FAUTEUILS</label>
+              <select id="seats" className="form-select" aria-required="true">
                 <option value="">Sélectionnez...</option>
                 <option>1-3 fauteuils</option>
                 <option>4-8 fauteuils</option>
@@ -652,8 +670,8 @@ function CTA() {
               </select>
             </div>
             <div className="form-group">
-              <label className="form-label">CE QUI VOUS INTÉRESSE LE PLUS</label>
-              <select className="form-select">
+              <label htmlFor="interest" className="form-label">CE QUI VOUS INTÉRESSE LE PLUS</label>
+              <select id="interest" className="form-select" aria-required="true">
                 <option value="">Sélectionnez...</option>
                 <option>Découvrir de nouvelles marques</option>
                 <option>Obtenir de meilleures conditions</option>
@@ -701,15 +719,18 @@ export default function App() {
   return (
     <>
       <style>{css}</style>
+      <a href="#main-content" className="skip-link">Aller au contenu principal</a>
       <Nav />
-      <Hero />
-      <PainPoints />
-      <HowItWorks />
-      <Benefits />
-      <SocialProof />
-      <FAQ />
-      <CTA />
-      <BrandBanner />
+      <main id="main-content">
+        <Hero />
+        <PainPoints />
+        <HowItWorks />
+        <Benefits />
+        <SocialProof />
+        <FAQ />
+        <CTA />
+        <BrandBanner />
+      </main>
       <Footer />
     </>
   );
