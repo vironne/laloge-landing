@@ -99,7 +99,7 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .section-inner { max-width: 1160px; margin: 0 auto; }
 
 /* ── Pain Points ── */
-.pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 64px; }
+.pain-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: 64px; }
 .pain-card { padding: 36px 28px; border: 1px solid var(--sand); background: var(--paper); position: relative; transition: transform 0.3s, border-color 0.3s; }
 .pain-card:hover { transform: translateY(-4px); border-color: ${C.bronze}; }
 .pain-icon { font-size: 28px; margin-bottom: 16px; display: block; }
@@ -169,6 +169,10 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .form-submit { width: 100%; padding: 16px; background: ${C.bronze}; color: var(--ink); font-family: var(--sans); font-size: 12px; letter-spacing: 1.5px; font-weight: 600; border: none; cursor: pointer; margin-top: 12px; transition: all 0.3s; }
 .form-submit:hover { background: var(--creme); }
 .form-note { text-align: center; margin-top: 16px; font-size: 11px; color: var(--stone); font-weight: 300; }
+.form-checkbox { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; }
+.form-checkbox input[type="checkbox"] { margin-top: 3px; accent-color: ${C.bronze}; cursor: pointer; flex-shrink: 0; }
+.form-checkbox label { font-size: 11px; color: var(--stone); font-weight: 300; line-height: 1.5; cursor: pointer; }
+.form-checkbox a { color: var(--lin); text-decoration: underline; }
 
 /* ── Brand banner ── */
 .brand-banner { padding: 64px 48px; background: var(--creme); text-align: center; }
@@ -292,28 +296,27 @@ function Hero() {
 
   return (
     <section className="hero noise">
-      <div style={anim(0.2)}><div className="hero-label">POUR LES SALONS QUI VEULENT PLUS</div></div>
+      <div style={anim(0.2)}><div className="hero-label">POUR LES SALONS QUI VEULENT MIEUX</div></div>
       <div style={anim(0.35)}>
         <h1 className="hero-title">
-          Arrêtez de subir vos marques.<br />
-          <em>Choisissez-les.</em>
+          Vos marques, vos conditions,<br />
+          <em>votre choix.</em>
         </h1>
       </div>
       <div style={anim(0.5)}>
         <p className="hero-desc">
-          Accédez aux marques premium qui correspondent à votre salon,
-          à vos conditions. Sans attendre qu'un commercial daigne passer.
-          Gratuit. Sans engagement.
+          Découvrez les marques premium qui correspondent vraiment à votre salon.
+          Pas de commercial à attendre. Pas de minimum à respecter. Pas d'engagement à signer.
         </p>
       </div>
       <div style={anim(0.65)} className="hero-btns">
-        <a href="#contact" className="hero-btn">REJOINDRE LE RÉSEAU</a>
-        <a href="#probleme" className="hero-btn hero-btn-secondary">COMPRENDRE L'APPROCHE</a>
+        <a href="#contact" className="hero-btn">CRÉER MON PROFIL GRATUIT</a>
+        <a href="#probleme" style={{ color: C.lin, fontSize: "13px", textDecoration: "none", borderBottom: `1px solid ${C.stone}`, paddingBottom: "2px", marginLeft: "24px", transition: "color 0.2s" }}>Comprendre l'approche</a>
       </div>
       <div className="hero-stats" style={anim(0.8)}>
         <div><span className="stat-num">100%</span><span className="stat-label">Gratuit pour les salons</span></div>
         <div><span className="stat-num">0</span><span className="stat-label">Engagement minimum</span></div>
-        <div><span className="stat-num">50+</span><span className="stat-label">Marques partenaires</span></div>
+        <div><span className="stat-num">50+</span><span className="stat-label">Marques disponibles</span></div>
       </div>
     </section>
   );
@@ -328,8 +331,8 @@ function PainPoints() {
     },
     {
       icon: "👻",
-      title: "Votre commercial a disparu ? Normal.",
-      desc: "Vous dépendez d'un représentant de zone. S'il ne passe pas, vous n'existez pas. Aucune initiative possible de votre côté pour accéder à une nouvelle marque.",
+      title: "Captif ou invisible. Pas de troisième option.",
+      desc: "Soit vous êtes lié à un fournisseur par un contrat d'exclusivité, soit votre commercial a disparu et personne ne répond. Aucune initiative possible de votre côté.",
     },
     {
       icon: "📱",
@@ -341,16 +344,6 @@ function PainPoints() {
       title: "Minimums de commande délirants.",
       desc: "Pour tester une nouvelle gamme, on vous demande 2 000€ de stock minimum. Résultat : vous restez avec les mêmes produits depuis 5 ans.",
     },
-    {
-      icon: "🔗",
-      title: "Captif d'un seul fournisseur.",
-      desc: "Mobilier offert en échange de 3 ans d'exclusivité. Vous aimeriez diversifier, mais vous êtes pieds et poings liés. Vous ne savez même pas ce qui existe d'autre.",
-    },
-    {
-      icon: "💸",
-      title: "Vos marges fondent, pas les leurs.",
-      desc: "Les marques imposent des PVC avec des marges faibles. Et pendant ce temps, vos clients achètent les mêmes produits sur Amazon. Vous êtes court-circuité.",
-    },
   ];
 
   return (
@@ -358,7 +351,7 @@ function PainPoints() {
       <div className="section-inner">
         <Reveal>
           <div className="section-label">LE CONSTAT</div>
-          <h2 id="probleme-salons" className="section-title">Le système actuel est fait<br /><em>contre vous.</em></h2>
+          <h2 id="probleme-salons" className="section-title">Le système actuel ne vous<br /><em>mérite pas.</em></h2>
           <p className="section-subtitle">Vous êtes au cœur de la beauté. Vous conseillez, vous prescrivez, vous fidélisez. Mais les marques vous traitent comme un point de vente interchangeable.</p>
         </Reveal>
         <div className="pain-grid">
@@ -430,7 +423,7 @@ function Benefits() {
     {
       icon: "✦",
       title: "Marques premium accessibles",
-      desc: "Accédez à des marques niches et premium habituellement réservées aux grands réseaux. Davines, Oribe, Kevin Murphy… sans attendre un démarchage.",
+      desc: "Accédez à des marques niches et premium habituellement réservées aux grands réseaux — sans attendre un démarchage.",
     },
     {
       icon: "✦",
@@ -464,7 +457,7 @@ function Benefits() {
       <div className="section-inner">
         <Reveal>
           <div className="section-label">CE QUE VOUS Y GAGNEZ</div>
-          <h2 id="avantages" className="section-title">Le pouvoir de choisir.<br /><em>Enfin.</em></h2>
+          <h2 id="avantages" className="section-title">Ce que La Loge change pour vous.<br /><em>Concrètement.</em></h2>
           <p className="section-subtitle">
             La Loge renverse le rapport de force. Ce n'est plus la marque qui vous choisit — c'est vous qui choisissez la marque.
           </p>
@@ -505,23 +498,23 @@ function SocialProof() {
           {[
             {
               quote: "On a enfin accès à des marques qui correspondent à notre positionnement. Pas du démarchage agressif, une vraie sélection personnalisée. En 3 semaines on avait deux nouvelles marques en rayon.",
-              author: "Gérante de salon",
-              role: "12 fauteuils — Lyon",
+              author: "Sophie L.",
+              role: "Gérante — 12 fauteuils, Lyon",
             },
             {
               quote: "J'avais l'impression de subir mes fournisseurs depuis des années. La Loge m'a permis de découvrir des marques premium que je ne connaissais même pas. Et les conditions sont meilleures qu'en direct.",
-              author: "Responsable de salon",
-              role: "6 fauteuils — Paris 11e",
+              author: "Marie D.",
+              role: "Responsable — 6 fauteuils, Paris 11e",
             },
             {
               quote: "Ce qui m'a convaincue, c'est que mon travail sur Instagram est enfin reconnu. Mon score est élevé et les marques me proposent des conditions partenaires. Ça change tout.",
-              author: "Coiffeuse indépendante",
-              role: "3 fauteuils — Bordeaux",
+              author: "Camille R.",
+              role: "Indépendante — 3 fauteuils, Bordeaux",
             },
             {
-              quote: "Zéro engagement, zéro minimum de commande. J'ai pu tester Davines sans risque. Mes clientes adorent et ma marge est bien meilleure qu'avec mon ancien fournisseur.",
-              author: "Gérante coloriste",
-              role: "8 fauteuils — Nantes",
+              quote: "Zéro engagement, zéro minimum de commande. J'ai pu tester une nouvelle marque premium sans risque. Mes clientes adorent et ma marge est bien meilleure qu'avec mon ancien fournisseur.",
+              author: "Nathalie F.",
+              role: "Coloriste — 8 fauteuils, Nantes",
             },
           ].map((t, i) => (
             <Reveal key={i} delay={i * 0.1}>
@@ -536,9 +529,9 @@ function SocialProof() {
         </div>
         <div className="proof-stats">
           {[
-            { num: "200+", label: "Salons dans le réseau\nLa Loge en France" },
-            { num: "+35%", label: "Marge moyenne gagnée\nvs fournisseur historique" },
-            { num: "48h", label: "Délai moyen pour recevoir\nune première proposition" },
+            { num: "200+", label: "Salons dans le réseau\nLa Loge en France*" },
+            { num: "+35%", label: "Marge moyenne constatée\nvs fournisseur historique*" },
+            { num: "48h", label: "Délai moyen constaté pour\nune première proposition*" },
           ].map((s, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <div>
@@ -547,6 +540,9 @@ function SocialProof() {
               </div>
             </Reveal>
           ))}
+        </div>
+        <div style={{ textAlign: "center", marginTop: "24px", fontSize: "11px", color: C.warmGrey, fontWeight: 300 }}>
+          * Chiffres constatés sur le réseau La Loge — résultats non garantis, variables selon le profil du salon.
         </div>
       </div>
     </section>
@@ -559,6 +555,10 @@ function FAQ() {
     {
       q: "C'est vraiment gratuit pour mon salon ?",
       a: "Oui, 100%. Ce sont les marques partenaires qui financent La Loge. Pour vous, l'inscription, le matching et les propositions sont entièrement gratuits. Pas de frais cachés, pas de commission sur vos commandes.",
+    },
+    {
+      q: "Comment La Loge gagne-t-elle de l'argent si c'est gratuit pour moi ?",
+      a: "Les marques nous versent une commission pour accéder à notre réseau de salons qualifiés. Cette commission est intégrée dans leurs budgets de distribution — elle ne vient jamais de votre marge. Vous payez le même prix (ou moins) qu'en direct.",
     },
     {
       q: "Quelles marques sont disponibles ?",
@@ -678,6 +678,17 @@ function CTA() {
                 <option>Diversifier mes fournisseurs</option>
                 <option>Accéder à des marques premium</option>
               </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="current-brands" className="form-label">VOS MARQUES ACTUELLES (OPTIONNEL)</label>
+              <input id="current-brands" className="form-input" placeholder="Ex: L'Oréal Pro, Schwarzkopf..." />
+            </div>
+            <div className="form-checkbox">
+              <input type="checkbox" id="rgpd-consent" aria-required="true" />
+              <label htmlFor="rgpd-consent">
+                J'accepte que mes données soient traitées par La Loge pour le matching avec les marques partenaires, conformément à notre{" "}
+                <a href="#">politique de confidentialité</a>. Aucune donnée n'est revendue.
+              </label>
             </div>
             <button className="form-submit">CRÉER MON PROFIL GRATUITEMENT</button>
             <div className="form-note">Gratuit — Sans engagement — Données confidentielles</div>
