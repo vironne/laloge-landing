@@ -387,7 +387,6 @@ function Nav() {
           <a href="#methode">Comment ça marche</a>
           <a href="#profil">Votre profil</a>
           <a href="#faq">FAQ</a>
-          <a href="?marques" onClick={(e) => { e.preventDefault(); goTo('?marques'); }}>Marques</a>
           <a href="#contact" className="nav-cta">CANDIDATER</a>
         </div>
       </nav>
@@ -819,7 +818,7 @@ function Testimonials() {
         <Reveal>
           <div className="section-label">LEURS MOTS, PAS LES NÔTRES</div>
           <h2 className="section-title">
-            Ils ont candidaté. Ils ont été sélectionnés.<br /><em>Voici ce que ça a changé.</em>
+            Ils ont rejoint le réseau.<br /><em>Voici ce que ça a changé.</em>
           </h2>
         </Reveal>
         <div className="proof-grid">
@@ -1016,6 +1015,129 @@ function CTAFinal() {
 
 
 
+function LegalPage({ page }) {
+  const isMentions = page === "mentions";
+
+  const mentions = (
+    <div>
+      <h1 className="section-title" style={{ marginBottom: "40px" }}>Mentions légales</h1>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Éditeur du site</h2>
+      <p>La Loge est un service édité par :</p>
+      <br />
+      <p><strong>Orchestra Intelligence</strong><br />
+      Société par Actions Simplifiée (SAS) au capital de 1 000 €<br />
+      Siège social : 114 Avenue de Lavaur, 81100 Castres<br />
+      SIREN : 941 143 737<br />
+      RCS : Castres B 941 143 737<br />
+      Code APE : 62.02A<br />
+      Email : <a href="mailto:bonjour@laloge-beaute.com" style={{ color: "var(--terre)" }}>bonjour@laloge-beaute.com</a></p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Hébergement</h2>
+      <p>Ce site est hébergé par GitHub Pages — GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Propriété intellectuelle</h2>
+      <p>L'ensemble du contenu de ce site (textes, visuels, logotypes, structure) est la propriété exclusive d'Orchestra Intelligence et est protégé par le droit d'auteur. Toute reproduction, même partielle, sans autorisation préalable et écrite est interdite.</p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Limitation de responsabilité</h2>
+      <p>Orchestra Intelligence s'efforce d'assurer l'exactitude et la mise à jour des informations présentes sur ce site. Elle ne peut cependant garantir l'exactitude, la précision ou l'exhaustivité des informations diffusées.</p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Médiation</h2>
+      <p>En cas de litige, vous pouvez recourir à une procédure de médiation conventionnelle ou à tout autre mode alternatif de règlement des différends.</p>
+    </div>
+  );
+
+  const confidentialite = (
+    <div>
+      <h1 className="section-title" style={{ marginBottom: "40px" }}>Politique de confidentialité</h1>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Responsable du traitement</h2>
+      <p><strong>Orchestra Intelligence</strong> — 114 Avenue de Lavaur, 81100 Castres<br />
+      Email : <a href="mailto:bonjour@laloge-beaute.com" style={{ color: "var(--terre)" }}>bonjour@laloge-beaute.com</a></p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Données collectées</h2>
+      <p>Dans le cadre de l'utilisation de La Loge, nous collectons les données suivantes :</p>
+      <ul style={{ paddingLeft: "20px", marginTop: "12px", lineHeight: "2" }}>
+        <li>Nom du salon et ville</li>
+        <li>Prénom et adresse email professionnelle</li>
+        <li>Identifiant Instagram du salon (optionnel)</li>
+        <li>Marques actuellement référencées (optionnel)</li>
+        <li>Données publiques relatives à votre salon (avis en ligne, présence digitale, photos publiques)</li>
+      </ul>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Finalité du traitement</h2>
+      <p>Ces données sont utilisées exclusivement pour :</p>
+      <ul style={{ paddingLeft: "20px", marginTop: "12px", lineHeight: "2" }}>
+        <li>Établir votre profil La Loge et évaluer les affinités avec les marques partenaires</li>
+        <li>Vous mettre en relation avec des marques correspondant à votre positionnement</li>
+        <li>Vous adresser des propositions commerciales adaptées à votre salon</li>
+      </ul>
+      <p style={{ marginTop: "12px" }}>Les marques partenaires n'accèdent à votre dossier qu'après votre accord explicite pour chaque mise en relation.</p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Base légale</h2>
+      <p>Le traitement est fondé sur votre consentement explicite, recueilli lors de votre candidature (article 6.1.a du RGPD).</p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Durée de conservation</h2>
+      <p>Vos données sont conservées pendant la durée de votre inscription au réseau La Loge, et supprimées dans un délai de 12 mois suivant votre demande de désactivation.</p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Vos droits</h2>
+      <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+      <ul style={{ paddingLeft: "20px", marginTop: "12px", lineHeight: "2" }}>
+        <li>Droit d'accès à vos données</li>
+        <li>Droit de rectification</li>
+        <li>Droit à l'effacement (droit à l'oubli)</li>
+        <li>Droit à la portabilité</li>
+        <li>Droit d'opposition</li>
+        <li>Droit à la limitation du traitement</li>
+      </ul>
+      <p style={{ marginTop: "12px" }}>Pour exercer ces droits, écrivez-nous à : <a href="mailto:bonjour@laloge-beaute.com" style={{ color: "var(--terre)" }}>bonjour@laloge-beaute.com</a><br />
+      Vous disposez également du droit d'introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: "var(--terre)" }}>CNIL</a>.</p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Cookies</h2>
+      <p>Ce site n'utilise que des cookies techniques strictement nécessaires à son fonctionnement. Aucun cookie publicitaire ou de tracking tiers n'est déposé.</p>
+
+      <h2 style={{ fontFamily: "var(--serif)", fontSize: "20px", marginBottom: "16px", marginTop: "40px" }}>Sous-traitants</h2>
+      <p>Vos données ne sont jamais revendues à des tiers. L'hébergement est assuré par GitHub Inc. dans le cadre de leur politique de confidentialité.</p>
+    </div>
+  );
+
+  return (
+    <div style={{ background: C.paper, minHeight: "100vh" }}>
+      <nav className="nav">
+        <div>
+          <div className="nav-logo">L A&nbsp;&nbsp;L O G E</div>
+          <div className="nav-sub">CONCIERGERIE BEAUTÉ</div>
+        </div>
+        <div className="nav-links">
+          <a href="/" onClick={(e) => { e.preventDefault(); goTo('/'); }}>← Retour</a>
+          <a href="#contact" className="nav-cta" onClick={(e) => { e.preventDefault(); goTo('/'); }}>CANDIDATER</a>
+        </div>
+      </nav>
+      <section className="section" style={{ paddingTop: "140px" }}>
+        <div className="section-inner" style={{ maxWidth: "760px" }}>
+          <div style={{ fontSize: "14px", color: "var(--stone)", fontWeight: 300, lineHeight: 1.8 }}>
+            {isMentions ? mentions : confidentialite}
+          </div>
+        </div>
+      </section>
+      <div className="footer">
+        <div className="footer-inner">
+          <div>
+            <div className="footer-logo">L A&nbsp;&nbsp;L O G E</div>
+            <div className="footer-tagline">Conciergerie des salons indépendants</div>
+          </div>
+          <div className="footer-links">
+            <a href="/" onClick={(e) => { e.preventDefault(); goTo('/'); }}>Accueil</a>
+            <a href="?mentions" onClick={(e) => { e.preventDefault(); goTo('?mentions'); }}>Mentions légales</a>
+            <a href="?confidentialite" onClick={(e) => { e.preventDefault(); goTo('?confidentialite'); }}>Confidentialité</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 function BrandPage() {
   const plans = [
     {
@@ -1077,7 +1199,7 @@ function BrandPage() {
         </div>
         <div className="nav-links">
           <a href="/" onClick={(e) => { e.preventDefault(); goTo('/'); }}>← Retour</a>
-          <a href="mailto:marques@laloge-beaute.com" className="nav-cta">NOUS CONTACTER</a>
+          <a href="mailto:bonjour@laloge-beaute.com" className="nav-cta">NOUS CONTACTER</a>
         </div>
       </nav>
 
@@ -1144,7 +1266,7 @@ function BrandPage() {
                       </li>
                     ))}
                   </ul>
-                  <a href="mailto:marques@laloge-beaute.com" className="pricing-cta-btn">NOUS CONTACTER</a>
+                  <a href="mailto:bonjour@laloge-beaute.com" className="pricing-cta-btn">NOUS CONTACTER</a>
                 </div>
               </Reveal>
             ))}
@@ -1169,7 +1291,7 @@ function BrandPage() {
             <p style={{ color: C.lin, fontSize: "15px", lineHeight: "1.7", fontWeight: 300, marginBottom: "32px" }}>
               Chaque marque a des besoins différents. Contactez-nous pour un premier échange — on vous présente le réseau et on voit ensemble quelle approche fait sens pour vous.
             </p>
-            <a href="mailto:marques@laloge-beaute.com" className="hero-btn hero-btn-primary">marques@laloge-beaute.com</a>
+            <a href="mailto:bonjour@laloge-beaute.com" className="hero-btn hero-btn-primary">bonjour@laloge-beaute.com</a>
           </Reveal>
         </div>
       </section>
@@ -1183,8 +1305,8 @@ function BrandPage() {
           </div>
           <div className="footer-links">
             <a href="/" onClick={(e) => { e.preventDefault(); goTo('/'); }}>Accueil salons</a>
-            <a href="#">Mentions légales</a>
-            <a href="#">Confidentialité</a>
+            <a href="?mentions" onClick={(e) => { e.preventDefault(); goTo('?mentions'); }}>Mentions légales</a>
+            <a href="?confidentialite" onClick={(e) => { e.preventDefault(); goTo('?confidentialite'); }}>Confidentialité</a>
             <span style={{ color: C.stone }}>© 2025 La Loge.</span>
           </div>
         </div>
@@ -1220,8 +1342,8 @@ function Footer() {
             <a href="mailto:bonjour@laloge-beaute.com">bonjour@laloge-beaute.com</a>
           </div>
           <div className="footer-links">
-            <a href="#">Mentions légales</a>
-            <a href="#">Confidentialité</a>
+            <a href="?mentions" onClick={(e) => { e.preventDefault(); goTo('?mentions'); }}>Mentions légales</a>
+            <a href="?confidentialite" onClick={(e) => { e.preventDefault(); goTo('?confidentialite'); }}>Confidentialité</a>
             <span style={{ color: C.stone }}>© 2025 La Loge. Tous droits réservés.</span>
           </div>
         </div>
@@ -1237,7 +1359,13 @@ function goTo(path) {
 }
 
 export default function App() {
-  const getPage = () => window.location.search === '?marques' ? 'marques' : 'home';
+  const getPage = () => {
+    const s = window.location.search;
+    if (s === '?marques') return 'marques';
+    if (s === '?mentions') return 'mentions';
+    if (s === '?confidentialite') return 'confidentialite';
+    return 'home';
+  };
   const [page, setPage] = useState(getPage());
 
   useEffect(() => {
@@ -1247,14 +1375,9 @@ export default function App() {
     return () => { window.removeEventListener('navchange', h); window.removeEventListener('popstate', h); };
   }, []);
 
-  if (page === 'marques') {
-    return (
-      <>
-        <style>{css}</style>
-        <BrandPage />
-      </>
-    );
-  }
+  if (page === 'marques') { return (<><style>{css}</style><BrandPage /></>); }
+  if (page === 'mentions') { return (<><style>{css}</style><LegalPage page="mentions" /></>); }
+  if (page === 'confidentialite') { return (<><style>{css}</style><LegalPage page="confidentialite" /></>); }
 
   return (
     <>
