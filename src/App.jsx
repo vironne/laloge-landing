@@ -374,7 +374,7 @@ function Hero() {
       </div>
       <div style={anim(0.5)}>
         <p className="hero-desc">
-          La Loge est la première conciergerie dédiée aux salons de coiffure d'exception. Les marques premium nous confient la mission de vous trouver. Nous, on prend votre parti : on négocie pour vous les meilleures conditions, on filtre les marques qui vous correspondent, on gère tout le reste. Gratuitement. Parce que votre talent mérite d'être reconnu — et que les meilleures marques le cherchent activement.
+          La Loge est une conciergerie dédiée aux salons de coiffure. Les marques nous confient la mission de trouver des salons qui leur correspondent — et nous travaillons pour vous : on négocie, on filtre, on accompagne. Gratuitement. Parce que votre travail mérite d'être vu par les bonnes marques.
         </p>
       </div>
       <div style={anim(0.65)}>
@@ -539,10 +539,10 @@ function Inversion() {
         <Reveal delay={0.15}>
           <div className="inversion-block">
             <div className="inversion-quote">
-              "Bonjour Sophie, 3 marques premium ont consulté votre dossier ce week-end. Voici leurs propositions. On a déjà négocié 15 % de mieux que les conditions catalogue sur les deux premières. La troisième propose un partenariat ambassadeur avec shooting offert. Dites-nous laquelle vous intéresse — on s'occupe du reste."
+              "Bonjour Sophie, deux marques ont regardé votre profil cette semaine. Il y en a une qui nous semble bien correspondre à ce que vous cherchez. On a quelques questions avant d'aller plus loin — quand avez-vous cinq minutes ?"
             </div>
             <div className="inversion-text">
-              <p>Vous n'avez rien demandé. Vous n'avez appelé personne. Vous n'avez pas rempli un seul bon de commande. Vous avez juste fait ce que vous faites tous les jours : être excellente dans votre métier.</p>
+              <p>Vous n'avez rien demandé. Vous n'avez appelé personne. Vous n'avez pas rempli un seul bon de commande. Vous avez juste fait ce que vous faites tous les jours : votre métier.</p>
               <p>Le reste, c'est La Loge qui s'en est chargé.</p>
             </div>
             <div className="inversion-punchline">C'est ça, avoir une conciergerie.</div>
@@ -558,7 +558,7 @@ function HowItWorks() {
     {
       num: "01",
       title: "VOTRE HISTOIRE",
-      desc: "On ne vous demande pas de remplir un formulaire froid. On veut comprendre votre salon : comment vous travaillez, ce que vous aimez, ce qui vous manque, où vous voulez aller. Votre positionnement, vos spécialités, votre clientèle, vos marques actuelles, vos frustrations — tout compte.",
+      desc: "On ne vous demande pas de remplir un formulaire froid. On veut comprendre votre salon : comment vous travaillez, ce que vous aimez, ce qui vous manque, où vous voulez aller. Votre positionnement, vos spécialités, votre clientèle, vos marques actuelles — tout compte.",
       micro: "→ 5 minutes en ligne",
     },
     {
@@ -587,7 +587,7 @@ function HowItWorks() {
         <Reveal>
           <div className="section-label">LE PROCESSUS</div>
           <h2 className="section-title" style={{ color: C.creme }}>
-            Cinq minutes de votre temps.<br /><em>Toute une équipe derrière vous.</em>
+            Simple à démarrer.<br /><em>Sérieux dans la durée.</em>
           </h2>
         </Reveal>
         <div className="how-grid">
@@ -611,14 +611,14 @@ function HowItWorks() {
 
 function ScoreLaLoge() {
   const pillars = [
-    { icon: "🎯", title: "VOS TECHNIQUES & SPÉCIALITÉS", desc: "Coloriste, barbier, spécialiste du curly, expert en soins capillaires, extensions, lissages techniques — l'algorithme identifie votre savoir-faire distinctif. Les marques ne cherchent pas des généralistes : elles cherchent des salons qui maîtrisent les gestes qui mettent leurs produits en valeur. Plus votre spécialisation est pointue, plus les marques spécialisées se battent pour vous." },
+    { icon: "🎯", title: "VOS TECHNIQUES & SPÉCIALITÉS", desc: "Coloriste, barbier, spécialiste du curly, expert en soins capillaires, extensions, lissages techniques — l'algorithme identifie votre savoir-faire distinctif. Les marques ne cherchent pas des généralistes : elles cherchent des salons qui maîtrisent les gestes qui mettent leurs produits en valeur. Plus votre spécialisation est pointue, plus les marques spécialisées s'intéressent à votre profil." },
     { icon: "📍", title: "VOTRE EMPLACEMENT & ZONE DE CHALANDISE", desc: "Quartier, ville, densité de salons autour de vous, pouvoir d'achat de la zone, flux piéton — l'algorithme cartographie votre environnement. Un salon premium dans un quartier premium, c'est une vitrine rêvée pour une marque haut de gamme. Mais un salon d'exception dans une ville moyenne, c'est aussi un signal fort : vous attirez des clientes qui font le déplacement. Les deux comptent." },
-    { icon: "💰", title: "VOTRE POSITIONNEMENT PRIX", desc: "Votre grille tarifaire raconte une histoire. L'algorithme analyse le prix moyen de vos prestations, votre positionnement par rapport au marché local, la cohérence entre vos tarifs et votre offre. Une coupe à 65 € dans un salon qui respire le premium, avec des produits haut de gamme en rayon — c'est un signal de cohérence que les marques adorent." },
+    { icon: "💰", title: "VOTRE POSITIONNEMENT PRIX", desc: "Votre grille tarifaire raconte une histoire. L'algorithme analyse le prix moyen de vos prestations, votre positionnement par rapport au marché local, la cohérence entre vos tarifs et votre offre. Une coupe à 65 € dans un salon qui respire le premium, avec des produits haut de gamme en rayon — c'est un signal de cohérence que les marques remarquent." },
     { icon: "⭐", title: "VOS AVIS & VOTRE RÉPUTATION", desc: "Note Google, nombre d'avis, fraîcheur des avis, diversité des commentaires, note sur Planity, Treatwell ou d'autres plateformes — l'algorithme croise tout. Il ne regarde pas juste la moyenne : il analyse le sentiment, la récurrence des compliments sur des points précis, et détecte les signaux d'une clientèle fidèle qui revient et qui parle de vous." },
     { icon: "📱", title: "VOTRE PRÉSENCE DIGITALE", desc: "Nombre de followers — oui, mais surtout taux d'engagement, qualité visuelle des posts, régularité de publication, diversité du contenu. L'algorithme distingue un compte à 5 000 abonnés avec 8 % d'engagement d'un compte à 50 000 abonnés avec 0.3 %. Le premier vaut plus pour une marque. Et il le sait." },
     { icon: "🏛️", title: "VOTRE SALON — L'ESPACE, LE DÉCOR, L'AMBIANCE", desc: "L'algorithme analyse les photos de votre salon disponibles en ligne : Google, Instagram, votre site web. L'agencement, la lumière, les matériaux, la cohérence visuelle. Un salon qui a investi dans son espace envoie un message clair aux marques : ici, chaque détail compte." },
     { icon: "🤝", title: "VOS MARQUES ACTUELLES", desc: "Ce que vous avez déjà en rayon raconte votre niveau d'exigence. L'algorithme identifie vos marques actuelles et évalue la cohérence de votre offre. Un salon qui porte Davines, Olaplex et Kevin Murphy n'a pas le même profil qu'un salon tout-L'Oréal. Les marques qui vous correspondent ne sont pas les mêmes. L'algorithme fait le tri." },
-    { icon: "👥", title: "VOTRE CLIENTÈLE", desc: "Âge moyen, pouvoir d'achat, fidélité, fréquence de visite — l'algorithme déduit le profil de votre clientèle à partir de multiples signaux. Les marques qui visent les 25-35 ans urbaines ne cherchent pas les mêmes salons que celles qui ciblent une clientèle mature et premium. Votre clientèle EST votre valeur aux yeux des marques. L'algorithme la rend visible." },
+    { icon: "👥", title: "VOTRE CLIENTÈLE", desc: "Âge moyen, pouvoir d'achat, fidélité, fréquence de visite — l'algorithme déduit le profil de votre clientèle à partir de multiples signaux. Les marques qui visent les 25-35 ans urbaines ne cherchent pas les mêmes salons que celles qui ciblent une clientèle mature et premium. Votre clientèle est votre valeur aux yeux des marques. L'algorithme la rend visible." },
   ];
 
   return (
@@ -632,7 +632,7 @@ function ScoreLaLoge() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="score-intro">
-            Le Score La Loge est le premier algorithme qui traduit la qualité de votre salon en pouvoir de négociation concret. Il scanne en temps réel des dizaines de signaux publics et privés, les croise avec les critères des marques, et calcule votre indice d'attractivité. Ce n'est pas une note subjective. C'est un moteur intelligent qui apprend, s'affine et évolue avec vous.
+            Le Score La Loge traduit ce que vous construisez chaque jour en données lisibles pour les marques. Il analyse des signaux publics — réputation, présence digitale, positionnement — et les croise avec les critères de nos partenaires. Ce n'est pas une note figée : il évolue avec vous, au fil de votre travail.
           </p>
         </Reveal>
         <div className="score-grid">
@@ -649,7 +649,7 @@ function ScoreLaLoge() {
         <Reveal delay={0.5}>
           <div className="score-impact">
             <p>Le Score La Loge n'est pas figé. Il évolue en temps réel. Chaque nouvel avis Google, chaque Reel qui performe, chaque nouvelle prestation que vous ajoutez à votre carte — l'algorithme le capte et recalcule. Votre travail quotidien nourrit votre Score. Et votre Score nourrit vos conditions.</p>
-            <p>Les salons dans le top 10 % obtiennent des conditions que même les réseaux de 30 établissements n'ont pas. Pas parce qu'ils commandent plus. Parce que l'algorithme prouve ce qu'aucun volume de commande ne prouve : l'excellence.</p>
+            <p>Les salons avec les meilleurs scores accèdent à des conditions que les canaux traditionnels ne proposent pas — non pas parce qu'ils commandent plus, mais parce que leur travail parle pour eux.</p>
           </div>
         </Reveal>
         <Reveal delay={0.55}>
@@ -664,12 +664,12 @@ function ScoreLaLoge() {
 
 function Conciergerie() {
   const services = [
-    { icon: "🔍", title: "SCOUTING SUR MESURE", desc: "On ne vous envoie pas un PDF de 200 marques. On écoute ce que vous cherchez — une marque végane pour compléter votre offre, un soin technique premium, une ligne homme qui correspond à votre clientèle — et on va la chercher pour vous. 3 à 5 recommandations chirurgicales. Pas un annuaire." },
+    { icon: "🔍", title: "SCOUTING SUR MESURE", desc: "On ne vous envoie pas un PDF de 200 marques. On écoute ce que vous cherchez — une marque végane pour compléter votre offre, un soin technique premium, une ligne homme qui correspond à votre clientèle — et on va la chercher pour vous. Quelques recommandations ciblées — pas un catalogue." },
     { icon: "💰", title: "NÉGOCIATION EN VOTRE NOM", desc: "Vous n'avez plus jamais à négocier seul face à un directeur commercial qui fait ça toute la journée. La Loge négocie pour vous : tarifs, remises de lancement, PLV, animations en salon, formation technique offerte. On obtient ce que vous n'auriez pas obtenu seul — parce que c'est notre métier." },
-    { icon: "🚀", title: "ACCÈS À L'INACCESSIBLE", desc: "Des marques que vous admirez de loin mais qui ne répondent pas aux indépendants ? La Loge a les contacts directs. On ouvre des portes qui n'existent pas quand vous êtes seul. C'est la force du réseau : ensemble, les salons La Loge pèsent autant qu'une grande enseigne." },
+    { icon: "🚀", title: "ACCÈS À L'INACCESSIBLE", desc: "Des marques que vous admirez de loin mais qui ne répondent pas aux indépendants ? La Loge a les contacts directs. Le réseau permet d'établir des contacts que vous n'auriez pas pu avoir seul, et de négocier avec un poids collectif." },
     { icon: "🤝", title: "UN INTERLOCUTEUR HUMAIN", desc: "Pas un chatbot. Pas un formulaire. Pas un numéro vert avec 45 minutes d'attente. Un être humain qui connaît votre salon, vos marques, vos préférences. Quelqu'un à qui vous écrivez quand vous avez une question — et qui répond." },
     { icon: "📈", title: "ÉVOLUTION CONTINUE", desc: "Votre salon évolue. Vos besoins aussi. Régulièrement, on fait le point : est-ce que vos marques actuelles sont toujours les bonnes ? Est-ce qu'il y a des opportunités que vous ne voyez pas ? De nouvelles marques qui arrivent et qui correspondent à votre nouvelle direction ? On anticipe pour vous." },
-    { icon: "🤫", title: "ACCÈS AVANT-PREMIÈRE", desc: "Les nouvelles marques qui arrivent en France passent par La Loge pour trouver leurs premiers salons ambassadeurs. Être dans le réseau, c'est voir les marques avant qu'elles n'arrivent dans les salons pro. C'est choisir avant les autres. C'est être en avance." },
+    { icon: "🤫", title: "ACCÈS AVANT-PREMIÈRE", desc: "Les nouvelles marques qui arrivent en France passent par La Loge pour trouver leurs premiers salons ambassadeurs. Être dans le réseau, c'est avoir accès aux nouvelles marques avant qu'elles ne soient disponibles en distribution classique." },
   ];
 
   return (
@@ -824,7 +824,7 @@ function FAQ() {
   const [open, setOpen] = useState(null);
   const faqs = [
     {
-      q: "C'est vraiment gratuit ? Sérieusement ?",
+      q: "C'est vraiment gratuit ?",
       a: "Oui. Le modèle est simple : les marques premium nous versent une commission pour accéder à notre réseau de salons qualifiés. Cette commission vient de leur budget distribution — pas de votre marge. Pour vous : candidature, score, matching, négociation, accompagnement — tout est inclus. Pas de frais cachés. Pas de commission sur vos commandes. C'est structurellement gratuit.",
     },
     {
@@ -904,7 +904,7 @@ function CTAFinal() {
             <div className="cta-promises">
               {[
                 "Une conciergerie dédiée qui négocie pour vous",
-                "Des conditions que vous n'obtiendrez jamais seul",
+                "Des conditions que vous n'obtiendriez pas seul",
                 "Votre Score visible par toutes les marques du réseau",
                 "Aucun frais, aucun engagement, aucune exclusivité — jamais",
               ].map((p, i) => (
