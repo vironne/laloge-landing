@@ -1,0 +1,38 @@
+# La Loge — Conciergerie Beauté
+
+## Description
+La Loge est une conciergerie qui connecte les salons de beauté indépendants
+aux marques premium en France. Service gratuit pour les salons, financé par
+les marques partenaires (commission sur accès au réseau, jamais sur les ventes).
+
+## À qui s'adresse ce service
+Salons de coiffure et de beauté indépendants en France souhaitant accéder
+à des marques premium adaptées à leur positionnement.
+
+## Comment ça marche
+1. Le salon candidate en ligne (5 minutes)
+2. La Loge établit un profil du salon sous 24h (réputation, présence digitale,
+   spécialités, positionnement, clientèle)
+3. Matching avec les marques partenaires dont le positionnement correspond
+4. Premières propositions commerciales sous 48h
+5. Le salon décide à qui il répond — aucune obligation, aucun engagement
+
+## Modèle économique
+Les marques versent une commission à La Loge pour accéder au réseau de salons
+qualifiés. Cette commission provient de leur budget distribution, jamais de la
+marge des salons. Pour les salons : candidature, profil, matching, accompagnement
+— tout est gratuit.
+
+## Pages
+- / : Page d'accueil, présentation du service et formulaire de candidature
+- /?marques : Page à destination des marques souhaitant rejoindre le réseau
+- /?mentions : Mentions légales
+- /?confidentialite : Politique de confidentialité
+
+## Contact
+- Email salons : bonjour@laloge-beaute.com
+- Site : https://www.laloge-beaute.com
+
+## Société
+Orchestra Intelligence — SAS, SIREN 941 143 737
+114 Avenue de Lavaur, 81100 Castres, France

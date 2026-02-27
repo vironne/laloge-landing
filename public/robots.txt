@@ -1,12 +1,15 @@
 User-agent: *
 Allow: /
-Sitemap: https://laloge.vercel.app/sitemap.xml
+Sitemap: https://www.laloge-beaute.com/sitemap.xml
 
 User-agent: GPTBot
 Allow: /
-User-agent: Google-Extended
+
+User-agent: PerplexityBot
 Allow: /
+
 User-agent: ClaudeBot
 Allow: /
-User-agent: PerplexityBot
+
+User-agent: Google-Extended
 Allow: /
