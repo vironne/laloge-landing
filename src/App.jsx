@@ -364,21 +364,21 @@ function Hero() {
   return (
     <section className="hero noise">
       <div style={anim(0.2)}>
-        <div className="hero-label">CONCIERGERIE DES SALONS D'EXCEPTION</div>
+        <div className="hero-label">CONCIERGERIE BEAUTÉ — SALONS INDÉPENDANTS</div>
       </div>
       <div style={anim(0.35)}>
         <h1 className="hero-title">
-          Vous mettez vos mains dans les cheveux des gens.<br />
-          <em>Les meilleures marques veulent être entre les vôtres.</em>
+          Pour les salons qui veulent mieux.<br />
+          <em>Vos marques, vos conditions, votre choix.</em>
         </h1>
       </div>
       <div style={anim(0.5)}>
         <p className="hero-desc">
-          La Loge est une conciergerie dédiée aux salons de coiffure. Les marques nous confient la mission de trouver des salons qui leur correspondent — et nous travaillons pour vous : on négocie, on filtre, on accompagne. Gratuitement. Parce que votre travail mérite d'être vu par les bonnes marques.
+          Trouvez les marques premium qui correspondent vraiment à votre salon. Pas de commercial à attendre. Pas de minimum à respecter. Pas d'engagement à signer. Gratuitement.
         </p>
       </div>
       <div style={anim(0.65)}>
-        <a href="#contact" className="hero-btn hero-btn-primary">VÉRIFIER MON ÉLIGIBILITÉ</a>
+        <a href="#contact" className="hero-btn hero-btn-primary">CRÉER MON PROFIL GRATUIT</a>
       </div>
       <div style={anim(0.75)}>
         <div className="hero-micro">5 min · Gratuit · Sans engagement · Premières offres sous 48h</div>
@@ -824,8 +824,12 @@ function FAQ() {
   const [open, setOpen] = useState(null);
   const faqs = [
     {
-      q: "C'est vraiment gratuit ?",
+      q: "C'est gratuit — comment vous rémunérez-vous ?",
       a: "Oui. Le modèle est simple : les marques premium nous versent une commission pour accéder à notre réseau de salons qualifiés. Cette commission vient de leur budget distribution — pas de votre marge. Pour vous : candidature, score, matching, négociation, accompagnement — tout est inclus. Pas de frais cachés. Pas de commission sur vos commandes. C'est structurellement gratuit.",
+    },
+    {
+      q: "Comment La Loge gagne-t-elle de l\'argent si c\'est gratuit pour moi ?",
+      a: "Les marques nous versent une commission pour accéder à notre réseau de salons qualifiés. Cette commission est intégrée dans leurs budgets de distribution — elle ne vient jamais de votre marge. Vous payez le même prix qu\'en direct, souvent moins grâce aux conditions négociées.",
     },
     {
       q: "Vous travaillez pour les marques ou pour moi ?",
@@ -833,7 +837,7 @@ function FAQ() {
     },
     {
       q: "En quoi vous êtes différents d'un grossiste ou d'une marketplace ?",
-      a: "Un grossiste vous vend des produits. Une marketplace vous donne un catalogue. La Loge vous REPRÉSENTE. On est votre agent : on négocie pour vous, on filtre pour vous, on ouvre des portes pour vous. C'est la différence entre réserver un hôtel sur Booking et avoir un concierge qui connaît vos goûts. Le premier vous donne une liste. Le second vous offre une expérience.",
+      a: "Un grossiste vous vend des produits. Une marketplace vous donne un catalogue. La Loge vous représente. On est votre agent : on négocie pour vous, on filtre pour vous, on ouvre des portes pour vous. C'est la différence entre réserver un hôtel sur Booking et avoir un concierge qui connaît vos goûts. Le premier vous donne une liste. Le second vous offre une expérience.",
     },
     {
       q: "Quelles marques sont disponibles ?",
@@ -841,7 +845,7 @@ function FAQ() {
     },
     {
       q: "Est-ce que tous les salons sont acceptés ?",
-      a: "Non, et c'est volontaire. La sélectivité est ce qui garantit la qualité du réseau — et donc les conditions exceptionnelles. Les marques investissent PARCE QUE nos salons sont triés. Si votre candidature n'est pas retenue immédiatement, on vous donne les pistes concrètes pour améliorer votre Score et recandidater. Certains salons sont passés de \"pas encore\" à \"top 20 %\" en 3 mois.",
+      a: "Non, et c'est volontaire. La sélectivité est ce qui garantit la qualité du réseau — et donc les conditions exceptionnelles. La sélectivité est ce qui garantit la qualité du réseau — et donc les conditions des partenariats. Si votre candidature n'est pas retenue immédiatement, on vous donne les pistes concrètes pour améliorer votre Score et recandidater. Certains salons qui n'étaient pas retenus au départ ont été acceptés quelques mois plus tard, après avoir amélioré leur score.",
     },
     {
       q: "Est-ce que je dois quitter mes marques actuelles ?",
@@ -857,7 +861,7 @@ function FAQ() {
     },
     {
       q: "Qu'est-ce que vous faites de mes données ?",
-      a: "Vos données servent uniquement au Score et au matching. Elles ne sont jamais revendues — à personne, jamais. Les marques ne voient votre dossier que si VOUS acceptez la mise en relation. Vous pouvez retirer votre profil à tout moment.",
+      a: "Vos données servent uniquement au Score et au matching. Elles ne sont jamais revendues — à personne, jamais. Les marques ne voient votre dossier que si vous acceptez la mise en relation. Vous pouvez retirer votre profil à tout moment.",
     },
   ];
 
