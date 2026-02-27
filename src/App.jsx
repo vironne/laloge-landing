@@ -369,12 +369,12 @@ function Hero() {
       <div style={anim(0.35)}>
         <h1 className="hero-title">
           Vous mettez vos mains dans les cheveux des gens.<br />
-          <em>Les marques devraient mettre un genou à terre.</em>
+          <em>Les meilleures marques veulent être entre les vôtres.</em>
         </h1>
       </div>
       <div style={anim(0.5)}>
         <p className="hero-desc">
-          La Loge est la première conciergerie dédiée aux salons de coiffure d'exception. Les marques premium nous confient la mission de vous trouver. Nous, on prend votre parti : on négocie pour vous les meilleures conditions, on filtre les marques qui vous méritent, on gère tout le reste. Gratuitement. Parce que c'est votre talent qui fait tourner cette industrie — il est temps que quelqu'un vous le dise.
+          La Loge est la première conciergerie dédiée aux salons de coiffure d'exception. Les marques premium nous confient la mission de vous trouver. Nous, on prend votre parti : on négocie pour vous les meilleures conditions, on filtre les marques qui vous correspondent, on gère tout le reste. Gratuitement. Parce que votre talent mérite d'être reconnu — et que les meilleures marques le cherchent activement.
         </p>
       </div>
       <div style={anim(0.65)}>
@@ -412,7 +412,7 @@ function Tribute() {
             <p>La femme qui s'assoit dans votre fauteuil à 14h, elle ne vient pas pour une coupe. Elle vient parce que son reflet ne lui ressemble plus. Elle vient parce que demain c'est un entretien, un mariage, un premier rendez-vous — ou juste un mardi où elle a besoin de se sentir belle.</p>
             <p>Et vous, en 45 minutes, vous faites ce qu'aucun algorithme, aucune appli, aucune intelligence artificielle ne sait faire : vous regardez quelqu'un dans les yeux, vous comprenez ce qu'il ne dit pas, et vous le transformez.</p>
             <p>Vos mains connaissent 200 techniques. Votre œil voit la couleur avant qu'elle n'existe. Vous êtes artisan, confident, prescripteur, artiste — parfois tout ça dans la même heure.</p>
-            <p>Alors pourquoi est-ce que personne dans cette industrie ne vous traite à la hauteur de ce que vous êtes ?</p>
+            <p>La Loge est née de cette conviction : les meilleurs artisans de la beauté méritent une représentation à la hauteur. Pas un portail B2B. Pas un chatbot. Une vraie conciergerie.</p>
           </div>
         </Reveal>
       </div>
@@ -454,7 +454,7 @@ function DoubleMandat() {
               <div className="mandat-col-title">CE QU'ON FAIT POUR VOUS, AU QUOTIDIEN</div>
               {[
                 "Négocier vos conditions comme un agent négocie pour son artiste",
-                "Filtrer les marques — vous ne voyez que celles qui vous méritent",
+                "Filtrer les marques — vous ne voyez que celles qui vous correspondent vraiment",
                 "Vous ouvrir les portes de marques inaccessibles en direct",
                 "Vous accompagner dans la durée, pas juste au premier contact",
                 "Et vous ne payez rien. Jamais. Zéro.",
@@ -466,7 +466,7 @@ function DoubleMandat() {
         </div>
         <Reveal delay={0.3}>
           <div className="mandat-synthesis">
-            Les marques financent le système parce qu'elles ont besoin des meilleurs salons. Vous récoltez les bénéfices parce que vous ÊTES les meilleurs salons. C'est le seul modèle où tout le monde y gagne — surtout vous.
+            Les marques nous mandatent parce qu'elles cherchent des salons d'exception. Vous accédez à un réseau et des conditions que vous n'obtiendriez pas seul. Un modèle où les intérêts sont naturellement alignés.
           </div>
         </Reveal>
       </div>
@@ -479,17 +479,17 @@ function Problem() {
     {
       icon: "😶",
       title: "LE COMMERCIAL FANTÔME",
-      desc: "Votre représentant a changé 3 fois en 2 ans. Le dernier ? Plus de nouvelles depuis septembre. Vous commandez en ligne sur un portail qui n'a pas changé depuis 2015. Quand vous avez un problème, vous parlez à un chatbot. Vous qui passez vos journées à créer du lien humain — on vous enlève le vôtre.",
+      desc: "Votre représentant a changé 3 fois en 2 ans. Le dernier ? Plus de nouvelles depuis septembre. Vous commandez en ligne sur un portail qui n'a pas changé depuis 2015. Quand vous avez un problème, vous parlez à un chatbot. Vous qui passez vos journées à créer du lien humain, vous méritez mieux que ça.",
     },
     {
       icon: "🔒",
       title: "L'IMPASSE",
-      desc: "Pour accéder à la marque que vous voulez vraiment, on vous demande 2 000 € de stock minimum et une exclusivité sur la catégorie. Vous acceptez parce que vous n'avez pas d'alternative. Et vous restez coincé avec les mêmes produits, année après année. Pas par choix. Par défaut.",
+      desc: "Pour accéder à la marque que vous voulez vraiment, on vous demande 2 000 € de stock minimum et une exclusivité sur la catégorie. Un modèle qui laisse peu de place aux indépendants. La Loge est là pour changer ça.",
     },
     {
       icon: "📱",
       title: "L'ARTISAN INVISIBLE",
-      desc: "10 000 abonnés. Des avant/après qui font 50K vues. Des clientes qui traversent la ville pour vos balayages. Et vous commandez aux mêmes conditions que le salon qui vient d'ouvrir avec un Groupon. Votre art, votre communauté, votre réputation — tout ça vaut zéro dans le système actuel.",
+      desc: "10 000 abonnés. Des avant/après qui font 50K vues. Des clientes qui traversent la ville pour vos balayages. Et vous commandez aux mêmes conditions que le salon qui vient d'ouvrir avec un Groupon. Votre art, votre communauté, votre réputation — tout ça mérite d'être reconnu à sa juste valeur.",
     },
   ];
 
@@ -499,10 +499,10 @@ function Problem() {
         <Reveal>
           <div className="section-label">CE QUI NE VA PAS</div>
           <h2 className="section-title">
-            Vous êtes au cœur de la beauté.<br /><em>On vous traite comme un bon de commande.</em>
+            Vous êtes au cœur de la beauté.<br /><em>Vous méritez d'être traité comme tel.</em>
           </h2>
           <p className="section-subtitle">
-            Vous prescrivez des produits à des centaines de clientes par mois. Vous êtes le dernier maillon avant l'achat — le plus important. Et pourtant, dans la chaîne de valeur des marques, vous êtes un numéro de compte client sur un portail B2B.
+            Vous prescrivez des produits à des centaines de clientes par mois. Vous êtes le dernier maillon avant l'achat — souvent le plus décisif. La Loge est convaincue qu'il existe une meilleure façon de valoriser ça.
           </p>
         </Reveal>
         <div className="pain-grid">
@@ -518,7 +518,7 @@ function Problem() {
         </div>
         <Reveal delay={0.35}>
           <p className="pain-transition">
-            Ce système a été conçu par des grossistes, pour des grossistes. Pas pour des artisans comme vous. La Loge existe pour réécrire les règles.
+            Le circuit traditionnel n'a pas été conçu pour les artisans indépendants. La Loge ouvre une autre voie.
           </p>
         </Reveal>
       </div>
@@ -564,7 +564,7 @@ function HowItWorks() {
     {
       num: "02",
       title: "VOTRE SCORE LA LOGE",
-      desc: "Notre algorithme analyse des dizaines de signaux — votre réputation en ligne, votre influence, vos techniques, votre clientèle — et traduit tout ça en un indice d'attractivité. Ce Score détermine quelles marques vous sont proposées, et à quelles conditions. Plus vous êtes remarquable, plus les offres sont agressives.",
+      desc: "Notre algorithme analyse des dizaines de signaux — votre réputation en ligne, votre influence, vos techniques, votre clientèle — et traduit tout ça en un indice d'attractivité. Ce Score détermine quelles marques vous sont proposées, et à quelles conditions. Plus vous êtes remarquable, plus les conditions sont favorables.",
       micro: "→ Calculé sous 24h",
     },
     {
@@ -665,7 +665,7 @@ function ScoreLaLoge() {
 function Conciergerie() {
   const services = [
     { icon: "🔍", title: "SCOUTING SUR MESURE", desc: "On ne vous envoie pas un PDF de 200 marques. On écoute ce que vous cherchez — une marque végane pour compléter votre offre, un soin technique premium, une ligne homme qui correspond à votre clientèle — et on va la chercher pour vous. 3 à 5 recommandations chirurgicales. Pas un annuaire." },
-    { icon: "💰", title: "NÉGOCIATION EN VOTRE NOM", desc: "Vous n'avez plus jamais à négocier seul face à un directeur commercial qui fait ça toute la journée. La Loge négocie pour vous : tarifs, remises de lancement, PLV, animations en salon, formation technique offerte. On obtient ce que vous n'oseriez pas demander — parce que c'est notre métier." },
+    { icon: "💰", title: "NÉGOCIATION EN VOTRE NOM", desc: "Vous n'avez plus jamais à négocier seul face à un directeur commercial qui fait ça toute la journée. La Loge négocie pour vous : tarifs, remises de lancement, PLV, animations en salon, formation technique offerte. On obtient ce que vous n'auriez pas obtenu seul — parce que c'est notre métier." },
     { icon: "🚀", title: "ACCÈS À L'INACCESSIBLE", desc: "Des marques que vous admirez de loin mais qui ne répondent pas aux indépendants ? La Loge a les contacts directs. On ouvre des portes qui n'existent pas quand vous êtes seul. C'est la force du réseau : ensemble, les salons La Loge pèsent autant qu'une grande enseigne." },
     { icon: "🤝", title: "UN INTERLOCUTEUR HUMAIN", desc: "Pas un chatbot. Pas un formulaire. Pas un numéro vert avec 45 minutes d'attente. Un être humain qui connaît votre salon, vos marques, vos préférences. Quelqu'un à qui vous écrivez quand vous avez une question — et qui répond." },
     { icon: "📈", title: "ÉVOLUTION CONTINUE", desc: "Votre salon évolue. Vos besoins aussi. Régulièrement, on fait le point : est-ce que vos marques actuelles sont toujours les bonnes ? Est-ce qu'il y a des opportunités que vous ne voyez pas ? De nouvelles marques qui arrivent et qui correspondent à votre nouvelle direction ? On anticipe pour vous." },
@@ -810,8 +810,7 @@ function Philosophy() {
           <div className="philo-text">
             <p>La coiffure, c'est le premier métier du toucher. Le premier métier du regard. C'est un art qui se pratique à bout de bras, debout, 8 heures par jour, les mains dans la couleur et le cœur dans la conversation.</p>
             <p>Un coiffeur, c'est la personne à qui on raconte son divorce avant d'en parler à sa meilleure amie. C'est celui qui voit qu'une cliente ne va pas bien juste à la façon dont elle s'assoit. C'est l'artisan qui transforme une coupe en confiance, un balayage en lumière, une couleur en personnalité.</p>
-            <p>Et cette personne-là, on lui envoie un bon de commande par email et un commercial qui ne rappelle pas ?</p>
-            <p><strong>Non.</strong></p>
+            <p>Cette personne-là mérite un accompagnement à la hauteur de ce qu'elle crée.</p>
             <p>La Loge existe parce qu'on pense que les meilleurs artisans de la beauté méritent d'être représentés comme les artistes qu'ils sont. Avec un agent. Avec une conciergerie. Avec quelqu'un qui se bat pour eux dans les coulisses, pour qu'eux puissent rester là où ils sont les meilleurs : dans leur fauteuil, face à leur client.</p>
             <p>C'est aussi simple que ça.</p>
           </div>
@@ -830,7 +829,7 @@ function FAQ() {
     },
     {
       q: "Vous travaillez pour les marques ou pour moi ?",
-      a: "Les marques nous mandatent pour trouver les meilleurs salons — c'est elles qui financent le système. Mais notre conciergerie est À VOUS. On négocie vos conditions, on filtre les marques, on vous accompagne. Pourquoi ? Parce que notre réseau ne vaut quelque chose que si nos salons sont heureux. Un salon mécontent, c'est un salon qui part. Et un réseau qui se vide, c'est un réseau mort. Nos intérêts sont alignés avec les vôtres.",
+      a: "Les marques nous mandatent pour trouver les meilleurs salons — c'est elles qui financent le système. Mais notre conciergerie travaille pour vous. On négocie vos conditions, on filtre les marques, on vous accompagne. Pourquoi ? Parce que notre réseau ne vaut quelque chose que si nos salons sont heureux. Un salon mécontent, c'est un salon qui part. Et un réseau qui se vide, c'est un réseau mort. Nos intérêts sont alignés avec les vôtres.",
     },
     {
       q: "En quoi vous êtes différents d'un grossiste ou d'une marketplace ?",
@@ -900,7 +899,7 @@ function CTAFinal() {
               Votre salon mérite<br /><em>d'être représenté.</em>
             </h2>
             <p className="cta-desc">
-              La Loge construit le premier réseau de salons d'exception en France. La sélection est ouverte. Pas pour toujours.
+              La Loge construit le premier réseau de salons d'exception en France. Les candidatures sont ouvertes.
             </p>
             <div className="cta-promises">
               {[
