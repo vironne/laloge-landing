@@ -261,6 +261,29 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 }
 .skip-link:focus { top: 16px; }
 
+
+/* ── Brand page pricing ── */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+.pricing-card { padding: 40px 32px; border: 1px solid var(--sand); background: var(--white); display: flex; flex-direction: column; }
+.pricing-card.highlight { background: var(--ink); color: var(--creme); border-color: var(--ink); }
+.pricing-badge { display: inline-block; font-size: 9px; letter-spacing: 2px; font-weight: 600; color: ${C.bronze}; border: 1px solid ${C.bronze}; padding: 3px 8px; margin-bottom: 12px; }
+.pricing-name { font-family: var(--serif); font-size: 22px; margin-bottom: 4px; }
+.pricing-price { font-size: 38px; font-weight: 300; line-height: 1; }
+.pricing-period { font-size: 13px; color: var(--stone); }
+.pricing-card.highlight .pricing-period { color: var(--lin); }
+.pricing-desc { font-size: 13px; color: var(--stone); margin: 16px 0 24px; line-height: 1.65; font-weight: 300; }
+.pricing-card.highlight .pricing-desc { color: var(--lin); }
+.pricing-features { list-style: none; flex: 1; }
+.pricing-feature { font-size: 13px; font-weight: 300; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; gap: 10px; color: var(--stone); line-height: 1.5; }
+.pricing-card.highlight .pricing-feature { border-color: rgba(255,255,255,0.08); color: var(--lin); }
+.pricing-feature-check { color: ${C.bronze}; flex-shrink: 0; font-size: 12px; margin-top: 1px; }
+.pricing-cta-btn { display: block; width: 100%; padding: 14px; text-align: center; font-family: var(--sans); font-size: 11px; letter-spacing: 1.5px; font-weight: 500; border: 1px solid var(--ink); color: var(--ink); background: transparent; cursor: pointer; margin-top: 28px; transition: all 0.3s; text-decoration: none; }
+.pricing-cta-btn:hover { background: var(--ink); color: var(--creme); }
+.pricing-card.highlight .pricing-cta-btn { border-color: ${C.bronze}; background: ${C.bronze}; color: var(--ink); }
+.pricing-card.highlight .pricing-cta-btn:hover { background: var(--creme); border-color: var(--creme); }
+.brand-hero { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 140px 24px 80px; background: var(--ink); color: var(--creme); }
+.brand-cta-final { padding: 80px 48px; background: var(--ink); text-align: center; }
+
 /* ── Mobile ── */
 @media (max-width: 900px) {
   .hero { padding: 100px 24px 64px; min-height: 100svh; }
@@ -322,6 +345,9 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 
   .brand-section { padding: 48px 20px; }
 
+  .pricing-grid { grid-template-columns: 1fr; }
+  .brand-hero { padding: 100px 20px 60px; min-height: 60vh; }
+  .brand-cta-final { padding: 52px 20px; }
   .footer-brand-strip { padding: 32px 20px; }
   .footer-brand-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
   .footer-brand-title { font-size: 17px; }
@@ -361,6 +387,7 @@ function Nav() {
           <a href="#methode">Comment ça marche</a>
           <a href="#profil">Votre profil</a>
           <a href="#faq">FAQ</a>
+          <a href="?marques" onClick={(e) => { e.preventDefault(); goTo('?marques'); }}>Marques</a>
           <a href="#contact" className="nav-cta">CANDIDATER</a>
         </div>
       </nav>
@@ -766,22 +793,22 @@ function Testimonials() {
   const testimonials = [
     {
       quote: "Je fais ce métier depuis 22 ans. J'ai vu les marques disparaître, les commerciaux changer, les conditions se dégrader. Quand La Loge m'a contactée, j'étais sceptique — encore un truc commercial. Mais non. Pour la première fois, quelqu'un m'a demandé ce que MOI je voulais. Et 3 semaines après, j'avais deux nouvelles marques en rayon. Avec des conditions que je n'avais jamais eues en 22 ans de métier.",
-      author: "Sophie M., Salon Éclat, Lyon",
+      author: "Salon indépendant, Lyon",
       meta: "3 nouvelles marques en 4 mois",
     },
     {
       quote: "J'ai 28 ans, j'ai ouvert mon salon il y a 3 ans. Je pensais que les marques premium, c'était réservé aux gros. Que je devais 'faire mes preuves' pendant 10 ans avant d'y avoir droit. La Loge m'a montré que mon profil correspondait exactement à ce que certaines marques cherchaient — grâce à mon travail sur Insta. Chez MOI. Le petit salon de Bordeaux. J'en reviens toujours pas.",
-      author: "Amira K., Studio Amira, Bordeaux",
+      author: "Studio, Bordeaux",
       meta: "Marge produits : +18 % en 3 mois",
     },
     {
       quote: "Ça faisait 6 ans que j'avais les mêmes marques. Pas par amour — par flemme de me battre pour en changer. La Loge a fait le boulot à ma place : ils m'ont trouvé 4 marques qui correspondaient à mon positionnement et ils ont négocié les conditions. J'en ai gardé 2 nouvelles. Mes clientes me demandent ce qui a changé. Tout. L'énergie du salon a changé.",
-      author: "Thomas R., Maison Thomas, Paris 11e",
+      author: "Salon, Paris 11e",
       meta: "Passé de 2 à 4 marques en rayon",
     },
     {
       quote: "Le moment où j'ai compris que La Loge c'était différent : ils m'ont dit 'votre travail sur les réseaux vous donne un levier que vous n'utilisez pas'. Personne ne m'avait jamais dit ça. Ils ont utilisé mon profil pour négocier un statut ambassadeur avec une marque que j'essayais d'avoir depuis 2 ans. Shooting offert, formation technique, conditions partenaires. Tout ça parce que quelqu'un a enfin vu la valeur de ce que je fais tous les jours.",
-      author: "Nadia F., L'Atelier Nadia, Annecy",
+      author: "Atelier, Annecy",
       meta: "Statut ambassadeur avec une marque premium",
     },
   ];
@@ -988,6 +1015,184 @@ function CTAFinal() {
 
 
 
+
+function BrandPage() {
+  const plans = [
+    {
+      name: "Découverte",
+      price: "490 €",
+      period: "/mois",
+      desc: "Pour découvrir le réseau et valider le matching.",
+      features: [
+        "Accès au réseau qualifié La Loge",
+        "Matching avec jusqu'à 20 salons par mois",
+        "Tableau de bord et suivi des mises en relation",
+        "Support email",
+      ],
+    },
+    {
+      name: "Croissance",
+      price: "990 €",
+      period: "/mois",
+      highlight: true,
+      badge: "LE PLUS CHOISI",
+      desc: "Pour accélérer votre distribution sur des salons à forte affinité.",
+      features: [
+        "Matching illimité",
+        "Analytics avancés par salon et par zone",
+        "Campagnes push vers des salons ciblés",
+        "Accès prioritaire aux nouveaux salons",
+        "Support dédié",
+      ],
+    },
+    {
+      name: "Partenaire",
+      price: "1 990 €",
+      period: "/mois",
+      desc: "Pour un partenariat stratégique et une présence de référence.",
+      features: [
+        "Placement prioritaire dans les recommandations",
+        "Account manager dédié",
+        "Co-branding et événements exclusifs",
+        "API d'intégration",
+        "Reporting mensuel personnalisé",
+      ],
+    },
+  ];
+
+  const benefits = [
+    { icon: "🎯", title: "Matching par affinité", desc: "On ne vous propose pas du volume. On identifie les salons dont la clientèle, le positionnement et les valeurs correspondent à votre marque." },
+    { icon: "📊", title: "Réseau qualifié et profilé", desc: "Chaque salon du réseau est analysé sur 8 dimensions. Vous savez exactement qui vous contactez et pourquoi." },
+    { icon: "🤝", title: "Mise en relation directe", desc: "Pas d'intermédiaire supplémentaire. Vous échangez directement avec les décideurs du salon, au bon moment." },
+    { icon: "📈", title: "Suivi et reporting", desc: "Tableau de bord, suivi des partenariats, reporting mensuel. Vous mesurez l'impact de chaque mise en relation." },
+  ];
+
+  return (
+    <div style={{ background: C.paper, minHeight: "100vh" }}>
+      {/* Nav */}
+      <nav className="nav">
+        <div>
+          <div className="nav-logo">L A&nbsp;&nbsp;L O G E</div>
+          <div className="nav-sub">POUR LES MARQUES</div>
+        </div>
+        <div className="nav-links">
+          <a href="/" onClick={(e) => { e.preventDefault(); goTo('/'); }}>← Retour</a>
+          <a href="mailto:marques@laloge-beaute.com" className="nav-cta">NOUS CONTACTER</a>
+        </div>
+      </nav>
+
+      {/* Hero */}
+      <section className="brand-hero noise">
+        <div className="hero-label" style={{ color: C.bronze }}>POUR LES MARQUES PREMIUM</div>
+        <h1 className="hero-title" style={{ color: C.creme }}>
+          Accédez aux salons<br />
+          <em>qui portent vraiment votre image.</em>
+        </h1>
+        <p className="hero-desc">
+          La Loge identifie et qualifie les meilleurs salons indépendants de France. Des prescripteurs engagés qui recommandent vos produits avec conviction — pas des points de vente passifs.
+        </p>
+        <a href="#offre" className="hero-btn hero-btn-primary">VOIR L'OFFRE</a>
+      </section>
+
+      {/* Pourquoi La Loge */}
+      <section className="section">
+        <div className="section-inner">
+          <Reveal>
+            <div className="section-label">POURQUOI LA LOGE</div>
+            <h2 className="section-title">Un réseau sélectif.<br /><em>Un impact mesurable.</em></h2>
+          </Reveal>
+          <div className="score-grid" style={{ marginTop: "48px" }}>
+            {benefits.map((b, i) => (
+              <Reveal key={i} delay={i * 0.08}>
+                <div className="score-card">
+                  <span className="score-card-icon">{b.icon}</span>
+                  <div className="score-card-title">{b.title}</div>
+                  <div className="score-card-desc">{b.desc}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section className="section section-creme" id="offre">
+        <div className="section-inner">
+          <Reveal>
+            <div className="section-label">OFFRES</div>
+            <h2 className="section-title">Transparent.<br /><em>Sans surprise.</em></h2>
+            <p className="section-subtitle" style={{ marginTop: "8px" }}>
+              Trois formules adaptées à votre rythme. Une commission de 8 à 12 % sur les premières commandes générées peut également s'y substituer ou s'y ajouter selon votre préférence.
+            </p>
+          </Reveal>
+          <div className="pricing-grid">
+            {plans.map((p, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <div className={`pricing-card${p.highlight ? " highlight" : ""}`}>
+                  {p.badge && <div className="pricing-badge">{p.badge}</div>}
+                  <div className="pricing-name">{p.name}</div>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: "6px", margin: "16px 0 4px" }}>
+                    <span className="pricing-price">{p.price}</span>
+                    <span className="pricing-period">{p.period}</span>
+                  </div>
+                  <div className="pricing-desc">{p.desc}</div>
+                  <ul className="pricing-features">
+                    {p.features.map((f, j) => (
+                      <li className="pricing-feature" key={j}>
+                        <span className="pricing-feature-check">✓</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="mailto:marques@laloge-beaute.com" className="pricing-cta-btn">NOUS CONTACTER</a>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={0.35}>
+            <p style={{ marginTop: "40px", fontSize: "13px", color: C.stone, fontWeight: 300, textAlign: "center", lineHeight: 1.7 }}>
+              Toutes les offres incluent un accès au tableau de bord La Loge et un onboarding accompagné.
+              Les engagements sont de 3 mois minimum. Tarifs HT.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CTA final */}
+      <section className="brand-cta-final noise">
+        <div style={{ maxWidth: "640px", margin: "0 auto" }}>
+          <Reveal>
+            <div className="section-label" style={{ color: C.bronze }}>PRÊT À COMMENCER ?</div>
+            <h2 className="section-title" style={{ color: C.creme, marginBottom: "16px" }}>
+              Discutons de votre<br /><em>stratégie de distribution.</em>
+            </h2>
+            <p style={{ color: C.lin, fontSize: "15px", lineHeight: "1.7", fontWeight: 300, marginBottom: "32px" }}>
+              Chaque marque a des besoins différents. Contactez-nous pour un premier échange — on vous présente le réseau et on voit ensemble quelle approche fait sens pour vous.
+            </p>
+            <a href="mailto:marques@laloge-beaute.com" className="hero-btn hero-btn-primary">marques@laloge-beaute.com</a>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Footer simplifié */}
+      <div className="footer">
+        <div className="footer-inner">
+          <div>
+            <div className="footer-logo">L A&nbsp;&nbsp;L O G E</div>
+            <div className="footer-tagline">Conciergerie des salons indépendants</div>
+          </div>
+          <div className="footer-links">
+            <a href="/" onClick={(e) => { e.preventDefault(); goTo('/'); }}>Accueil salons</a>
+            <a href="#">Mentions légales</a>
+            <a href="#">Confidentialité</a>
+            <span style={{ color: C.stone }}>© 2025 La Loge.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer>
@@ -998,7 +1203,7 @@ function Footer() {
             <div className="footer-brand-title">Vous cherchez des salons qui portent votre image ?</div>
             <div className="footer-brand-desc">La Loge identifie les salons qui correspondent à votre positionnement — des prescripteurs engagés, pas des points de vente. Matching par affinité, mise en relation directe.</div>
           </div>
-          <a href="mailto:marques@laloge-beaute.com" className="footer-brand-cta">marques@laloge-beaute.com →</a>
+          <a href="?marques" onClick={(e) => { e.preventDefault(); goTo('?marques'); }} className="footer-brand-cta">Découvrir l'offre →</a>
         </div>
       </div>
       <div className="footer">
@@ -1011,6 +1216,7 @@ function Footer() {
             <a href="#concept">Le concept</a>
             <a href="#profil">Votre profil</a>
             <a href="#faq">FAQ</a>
+            <a href="?marques" onClick={(e) => { e.preventDefault(); goTo('?marques'); }}>Marques</a>
             <a href="mailto:bonjour@laloge-beaute.com">bonjour@laloge-beaute.com</a>
           </div>
           <div className="footer-links">
@@ -1024,7 +1230,32 @@ function Footer() {
   );
 }
 
+function goTo(path) {
+  window.history.pushState({}, '', path);
+  window.dispatchEvent(new Event('navchange'));
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
 export default function App() {
+  const getPage = () => window.location.search === '?marques' ? 'marques' : 'home';
+  const [page, setPage] = useState(getPage());
+
+  useEffect(() => {
+    const h = () => setPage(getPage());
+    window.addEventListener('navchange', h);
+    window.addEventListener('popstate', h);
+    return () => { window.removeEventListener('navchange', h); window.removeEventListener('popstate', h); };
+  }, []);
+
+  if (page === 'marques') {
+    return (
+      <>
+        <style>{css}</style>
+        <BrandPage />
+      </>
+    );
+  }
+
   return (
     <>
       <style>{css}</style>
