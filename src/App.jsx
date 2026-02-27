@@ -139,7 +139,7 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .how-step-desc { font-size: 14px; color: var(--lin); font-weight: 300; line-height: 1.7; }
 .how-step-micro { font-size: 12px; color: ${C.bronze}; margin-top: 12px; font-weight: 500; letter-spacing: 0.5px; }
 
-/* ── Score La Loge ── */
+/* ── Profil La Loge ── */
 .score-intro { font-size: 16px; line-height: 1.8; color: var(--stone); max-width: 720px; font-weight: 300; margin: 24px 0 48px; }
 .score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .score-card { padding: 32px 28px; border: 1px solid var(--sand); background: var(--white); transition: transform 0.3s, border-color 0.3s; }
@@ -234,6 +234,15 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 .brand-cta { font-size: 13px; color: var(--ink); font-weight: 500; text-decoration: none; letter-spacing: 0.5px; border-bottom: 1px solid ${C.bronze}; padding-bottom: 2px; transition: color 0.2s; }
 .brand-cta:hover { color: var(--terre); }
 
+/* ── Footer brand strip ── */
+.footer-brand-strip { padding: 48px 48px; background: var(--creme); border-top: 1px solid var(--sand); }
+.footer-brand-inner { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 48px; }
+.footer-brand-label { font-size: 10px; letter-spacing: 3px; color: ${C.bronze}; font-weight: 500; margin-bottom: 10px; }
+.footer-brand-title { font-family: var(--serif); font-size: 20px; margin-bottom: 8px; }
+.footer-brand-desc { font-size: 13px; color: var(--stone); font-weight: 300; line-height: 1.65; max-width: 480px; }
+.footer-brand-cta { font-size: 13px; color: var(--ink); font-weight: 500; text-decoration: none; letter-spacing: 0.3px; border-bottom: 1px solid ${C.bronze}; padding-bottom: 2px; white-space: nowrap; transition: color 0.2s; flex-shrink: 0; }
+.footer-brand-cta:hover { color: var(--terre); }
+
 /* ── Footer ── */
 .footer { padding: 48px; background: ${C.charcoal}; color: var(--stone); font-size: 12px; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
@@ -313,6 +322,9 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 
   .brand-section { padding: 48px 20px; }
 
+  .footer-brand-strip { padding: 32px 20px; }
+  .footer-brand-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .footer-brand-title { font-size: 17px; }
   .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
   .footer { padding: 36px 20px; }
   .footer-links { flex-direction: column; gap: 12px; }
@@ -321,10 +333,14 @@ body, #root { font-family: var(--sans); color: var(--ink); background: var(--pap
 
 @media (max-width: 400px) {
   .hero { padding: 88px 18px 48px; }
-  .hero-title { font-size: 28px; }
-  .section { padding: 52px 16px; }
+  .hero-title { font-size: 26px; }
+  .section { padding: 48px 16px; }
+  .section-title { font-size: 24px; }
   .cta-form { padding: 24px 16px; }
   .nav { padding: 12px 16px; }
+  .mandat-synthesis { font-size: 15px; padding: 24px 16px; }
+  .how-step { grid-template-columns: 48px 1fr; gap: 12px; }
+  .how-num { font-size: 28px; }
 }
 `;
 
@@ -343,7 +359,7 @@ function Nav() {
         <div className="nav-links">
           <a href="#concept">Le concept</a>
           <a href="#methode">Comment ça marche</a>
-          <a href="#score">Score La Loge</a>
+          <a href="#profil">Votre profil</a>
           <a href="#faq">FAQ</a>
           <a href="#contact" className="nav-cta">CANDIDATER</a>
         </div>
@@ -563,9 +579,9 @@ function HowItWorks() {
     },
     {
       num: "02",
-      title: "VOTRE SCORE LA LOGE",
-      desc: "Notre algorithme analyse des dizaines de signaux — votre réputation en ligne, votre influence, vos techniques, votre clientèle — et traduit tout ça en un indice d'attractivité. Ce Score détermine quelles marques vous sont proposées, et à quelles conditions. Plus vous êtes remarquable, plus les conditions sont favorables.",
-      micro: "→ Calculé sous 24h",
+      title: "VOTRE PROFIL LA LOGE",
+      desc: "On analyse les signaux qui racontent votre salon — réputation en ligne, présence digitale, spécialités, positionnement — et on construit votre profil. Ce profil détermine quelles marques vous correspondent. Plus votre travail est remarquable, plus les opportunités sont intéressantes.",
+      micro: "→ Profil établi sous 24h",
     },
     {
       num: "03",
@@ -611,28 +627,28 @@ function HowItWorks() {
 
 function ScoreLaLoge() {
   const pillars = [
-    { icon: "🎯", title: "VOS TECHNIQUES & SPÉCIALITÉS", desc: "Coloriste, barbier, spécialiste du curly, expert en soins capillaires, extensions, lissages techniques — l'algorithme identifie votre savoir-faire distinctif. Les marques ne cherchent pas des généralistes : elles cherchent des salons qui maîtrisent les gestes qui mettent leurs produits en valeur. Plus votre spécialisation est pointue, plus les marques spécialisées s'intéressent à votre profil." },
-    { icon: "📍", title: "VOTRE EMPLACEMENT & ZONE DE CHALANDISE", desc: "Quartier, ville, densité de salons autour de vous, pouvoir d'achat de la zone, flux piéton — l'algorithme cartographie votre environnement. Un salon premium dans un quartier premium, c'est une vitrine rêvée pour une marque haut de gamme. Mais un salon d'exception dans une ville moyenne, c'est aussi un signal fort : vous attirez des clientes qui font le déplacement. Les deux comptent." },
-    { icon: "💰", title: "VOTRE POSITIONNEMENT PRIX", desc: "Votre grille tarifaire raconte une histoire. L'algorithme analyse le prix moyen de vos prestations, votre positionnement par rapport au marché local, la cohérence entre vos tarifs et votre offre. Une coupe à 65 € dans un salon qui respire le premium, avec des produits haut de gamme en rayon — c'est un signal de cohérence que les marques remarquent." },
-    { icon: "⭐", title: "VOS AVIS & VOTRE RÉPUTATION", desc: "Note Google, nombre d'avis, fraîcheur des avis, diversité des commentaires, note sur Planity, Treatwell ou d'autres plateformes — l'algorithme croise tout. Il ne regarde pas juste la moyenne : il analyse le sentiment, la récurrence des compliments sur des points précis, et détecte les signaux d'une clientèle fidèle qui revient et qui parle de vous." },
-    { icon: "📱", title: "VOTRE PRÉSENCE DIGITALE", desc: "Nombre de followers — oui, mais surtout taux d'engagement, qualité visuelle des posts, régularité de publication, diversité du contenu. L'algorithme distingue un compte à 5 000 abonnés avec 8 % d'engagement d'un compte à 50 000 abonnés avec 0.3 %. Le premier vaut plus pour une marque. Et il le sait." },
-    { icon: "🏛️", title: "VOTRE SALON — L'ESPACE, LE DÉCOR, L'AMBIANCE", desc: "L'algorithme analyse les photos de votre salon disponibles en ligne : Google, Instagram, votre site web. L'agencement, la lumière, les matériaux, la cohérence visuelle. Un salon qui a investi dans son espace envoie un message clair aux marques : ici, chaque détail compte." },
-    { icon: "🤝", title: "VOS MARQUES ACTUELLES", desc: "Ce que vous avez déjà en rayon raconte votre niveau d'exigence. L'algorithme identifie vos marques actuelles et évalue la cohérence de votre offre. Un salon qui porte Davines, Olaplex et Kevin Murphy n'a pas le même profil qu'un salon tout-L'Oréal. Les marques qui vous correspondent ne sont pas les mêmes. L'algorithme fait le tri." },
-    { icon: "👥", title: "VOTRE CLIENTÈLE", desc: "Âge moyen, pouvoir d'achat, fidélité, fréquence de visite — l'algorithme déduit le profil de votre clientèle à partir de multiples signaux. Les marques qui visent les 25-35 ans urbaines ne cherchent pas les mêmes salons que celles qui ciblent une clientèle mature et premium. Votre clientèle est votre valeur aux yeux des marques. L'algorithme la rend visible." },
+    { icon: "🎯", title: "VOS TECHNIQUES & SPÉCIALITÉS", desc: "Coloriste, barbier, spécialiste du curly, expert en soins capillaires, extensions, lissages techniques — on identifie votre savoir-faire distinctif. Les marques ne cherchent pas des généralistes : elles cherchent des salons qui maîtrisent les gestes qui mettent leurs produits en valeur. Plus votre spécialisation est pointue, plus les marques spécialisées s'intéressent à votre profil." },
+    { icon: "📍", title: "VOTRE EMPLACEMENT & ZONE DE CHALANDISE", desc: "Quartier, ville, densité de salons autour de vous, pouvoir d'achat de la zone, flux piéton — on cartographie votre environnement. Un salon premium dans un quartier premium, c'est une vitrine rêvée pour une marque haut de gamme. Mais un salon d'exception dans une ville moyenne, c'est aussi un signal fort : vous attirez des clientes qui font le déplacement. Les deux comptent." },
+    { icon: "💰", title: "VOTRE POSITIONNEMENT PRIX", desc: "Votre grille tarifaire raconte une histoire. On prend en compte le prix moyen de vos prestations, votre positionnement par rapport au marché local, la cohérence entre vos tarifs et votre offre. Une coupe à 65 € dans un salon qui respire le premium, avec des produits haut de gamme en rayon — c'est un signal de cohérence que les marques remarquent." },
+    { icon: "⭐", title: "VOS AVIS & VOTRE RÉPUTATION", desc: "Note Google, nombre d'avis, fraîcheur des avis, diversité des commentaires, note sur Planity, Treatwell ou d'autres plateformes — on croise tout. On ne regarde pas juste la moyenne : on analyse le sentiment, la récurrence des compliments sur des points précis, et détecte les signaux d'une clientèle fidèle qui revient et qui parle de vous." },
+    { icon: "📱", title: "VOTRE PRÉSENCE DIGITALE", desc: "Nombre de followers — oui, mais surtout taux d'engagement, qualité visuelle des posts, régularité de publication, diversité du contenu. Ce qui compte vraiment : un compte à 5 000 abonnés avec 8 % d'engagement vaut souvent plus pour une marque qu'un compte à 50 000 avec 0,3 %." },
+    { icon: "🏛️", title: "VOTRE SALON — L'ESPACE, LE DÉCOR, L'AMBIANCE", desc: "On s'appuie sur les photos de votre salon disponibles en ligne : Google, Instagram, votre site web. L'agencement, la lumière, les matériaux, la cohérence visuelle. Un salon qui a investi dans son espace envoie un message clair aux marques : ici, chaque détail compte." },
+    { icon: "🤝", title: "VOS MARQUES ACTUELLES", desc: "Ce que vous avez déjà en rayon raconte votre niveau d'exigence. On prend en compte vos marques actuelles pour évaluer la cohérence de votre offre. Un salon qui porte Davines, Olaplex et Kevin Murphy n'a pas le même profil qu'un salon tout-L'Oréal. Les marques qui vous correspondent ne sont pas les mêmes. On fait le tri." },
+    { icon: "👥", title: "VOTRE CLIENTÈLE", desc: "Âge moyen, pouvoir d'achat, fidélité, fréquence de visite — on déduit le profil de votre clientèle à partir de multiples signaux. Les marques qui visent les 25-35 ans urbaines ne cherchent pas les mêmes salons que celles qui ciblent une clientèle mature et premium. Votre clientèle est votre valeur aux yeux des marques. On la rend visible." },
   ];
 
   return (
-    <section className="section" id="score">
+    <section className="section" id="profil">
       <div className="section-inner">
         <Reveal>
-          <div className="section-label">SCORE LA LOGE</div>
+          <div className="section-label">VOTRE PROFIL</div>
           <h2 className="section-title">
             Chaque balayage, chaque post, chaque cliente fidèle —<br /><em>ça compte enfin.</em>
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="score-intro">
-            Le Score La Loge traduit ce que vous construisez chaque jour en données lisibles pour les marques. Il analyse des signaux publics — réputation, présence digitale, positionnement — et les croise avec les critères de nos partenaires. Ce n'est pas une note figée : il évolue avec vous, au fil de votre travail.
+            Quand une marque consulte un dossier La Loge, elle ne voit pas une note. Elle découvre un profil — votre univers, vos spécialités, votre clientèle, vos ambitions. On construit ce profil à partir de ce qui fait vraiment votre salon, et il s'enrichit au fil de votre travail.
           </p>
         </Reveal>
         <div className="score-grid">
@@ -648,13 +664,13 @@ function ScoreLaLoge() {
         </div>
         <Reveal delay={0.5}>
           <div className="score-impact">
-            <p>Le Score La Loge n'est pas figé. Il évolue en temps réel. Chaque nouvel avis Google, chaque Reel qui performe, chaque nouvelle prestation que vous ajoutez à votre carte — l'algorithme le capte et recalcule. Votre travail quotidien nourrit votre Score. Et votre Score nourrit vos conditions.</p>
-            <p>Les salons avec les meilleurs scores accèdent à des conditions que les canaux traditionnels ne proposent pas — non pas parce qu'ils commandent plus, mais parce que leur travail parle pour eux.</p>
+            <p>Votre profil évolue en continu. Chaque nouvel avis, chaque publication qui résonne, chaque nouvelle prestation — tout ça enrichit votre dossier et affine le matching avec les marques. Votre travail au quotidien se traduit directement en opportunités.</p>
+            <p>Un profil solide, c'est l'accès à des partenariats et des conditions qui correspondent vraiment à ce que vous avez construit — pas à la taille de vos commandes.</p>
           </div>
         </Reveal>
         <Reveal delay={0.55}>
           <div className="score-cta">
-            <a href="#contact" className="hero-btn" style={{ borderColor: C.bronze, color: C.ink }}>DÉCOUVRIR MON SCORE ESTIMÉ</a>
+            <a href="#contact" className="hero-btn" style={{ borderColor: C.bronze, color: C.ink }}>CRÉER MON PROFIL</a>
           </div>
         </Reveal>
       </div>
@@ -751,22 +767,22 @@ function Testimonials() {
     {
       quote: "Je fais ce métier depuis 22 ans. J'ai vu les marques disparaître, les commerciaux changer, les conditions se dégrader. Quand La Loge m'a contactée, j'étais sceptique — encore un truc commercial. Mais non. Pour la première fois, quelqu'un m'a demandé ce que MOI je voulais. Et 3 semaines après, j'avais deux nouvelles marques en rayon. Avec des conditions que je n'avais jamais eues en 22 ans de métier.",
       author: "Sophie M., Salon Éclat, Lyon",
-      meta: "Score La Loge : 87/100\n3 nouvelles marques en 4 mois",
+      meta: "3 nouvelles marques en 4 mois",
     },
     {
-      quote: "J'ai 28 ans, j'ai ouvert mon salon il y a 3 ans. Je pensais que les marques premium, c'était réservé aux gros. Que je devais 'faire mes preuves' pendant 10 ans avant d'y avoir droit. La Loge m'a montré que mon Score était élevé grâce à mon travail sur Insta — et les marques se sont battues pour être chez moi. Chez MOI. Le petit salon de Bordeaux. J'en reviens toujours pas.",
+      quote: "J'ai 28 ans, j'ai ouvert mon salon il y a 3 ans. Je pensais que les marques premium, c'était réservé aux gros. Que je devais 'faire mes preuves' pendant 10 ans avant d'y avoir droit. La Loge m'a montré que mon profil correspondait exactement à ce que certaines marques cherchaient — grâce à mon travail sur Insta. Chez MOI. Le petit salon de Bordeaux. J'en reviens toujours pas.",
       author: "Amira K., Studio Amira, Bordeaux",
-      meta: "Score La Loge : 91/100\nMarge produits : +18 % en 3 mois",
+      meta: "Marge produits : +18 % en 3 mois",
     },
     {
       quote: "Ça faisait 6 ans que j'avais les mêmes marques. Pas par amour — par flemme de me battre pour en changer. La Loge a fait le boulot à ma place : ils m'ont trouvé 4 marques qui correspondaient à mon positionnement et ils ont négocié les conditions. J'en ai gardé 2 nouvelles. Mes clientes me demandent ce qui a changé. Tout. L'énergie du salon a changé.",
       author: "Thomas R., Maison Thomas, Paris 11e",
-      meta: "Score La Loge : 78/100\nPassé de 2 à 4 marques en rayon",
+      meta: "Passé de 2 à 4 marques en rayon",
     },
     {
-      quote: "Le moment où j'ai compris que La Loge c'était différent : ils m'ont dit 'votre travail sur les réseaux vous donne un levier que vous n'utilisez pas'. Personne ne m'avait jamais dit ça. Ils ont utilisé mon Score pour négocier un statut ambassadeur avec une marque que j'essayais d'avoir depuis 2 ans. Shooting offert, formation technique, conditions partenaires. Tout ça parce que quelqu'un a enfin vu la valeur de ce que je fais tous les jours.",
+      quote: "Le moment où j'ai compris que La Loge c'était différent : ils m'ont dit 'votre travail sur les réseaux vous donne un levier que vous n'utilisez pas'. Personne ne m'avait jamais dit ça. Ils ont utilisé mon profil pour négocier un statut ambassadeur avec une marque que j'essayais d'avoir depuis 2 ans. Shooting offert, formation technique, conditions partenaires. Tout ça parce que quelqu'un a enfin vu la valeur de ce que je fais tous les jours.",
       author: "Nadia F., L'Atelier Nadia, Annecy",
-      meta: "Score La Loge : 83/100\nStatut ambassadeur avec une marque premium",
+      meta: "Statut ambassadeur avec une marque premium",
     },
   ];
 
@@ -827,10 +843,7 @@ function FAQ() {
       q: "C'est gratuit — comment vous rémunérez-vous ?",
       a: "Oui. Le modèle est simple : les marques premium nous versent une commission pour accéder à notre réseau de salons qualifiés. Cette commission vient de leur budget distribution — pas de votre marge. Pour vous : candidature, score, matching, négociation, accompagnement — tout est inclus. Pas de frais cachés. Pas de commission sur vos commandes. C'est structurellement gratuit.",
     },
-    {
-      q: "Comment La Loge gagne-t-elle de l\'argent si c\'est gratuit pour moi ?",
-      a: "Les marques nous versent une commission pour accéder à notre réseau de salons qualifiés. Cette commission est intégrée dans leurs budgets de distribution — elle ne vient jamais de votre marge. Vous payez le même prix qu\'en direct, souvent moins grâce aux conditions négociées.",
-    },
+
     {
       q: "Vous travaillez pour les marques ou pour moi ?",
       a: "Les marques nous mandatent pour trouver les meilleurs salons — c'est elles qui financent le système. Mais notre conciergerie travaille pour vous. On négocie vos conditions, on filtre les marques, on vous accompagne. Pourquoi ? Parce que notre réseau ne vaut quelque chose que si nos salons sont heureux. Un salon mécontent, c'est un salon qui part. Et un réseau qui se vide, c'est un réseau mort. Nos intérêts sont alignés avec les vôtres.",
@@ -845,19 +858,19 @@ function FAQ() {
     },
     {
       q: "Est-ce que tous les salons sont acceptés ?",
-      a: "Non, et c'est volontaire. La sélectivité est ce qui garantit la qualité du réseau — et donc les conditions exceptionnelles. La sélectivité est ce qui garantit la qualité du réseau — et donc les conditions des partenariats. Si votre candidature n'est pas retenue immédiatement, on vous donne les pistes concrètes pour améliorer votre Score et recandidater. Certains salons qui n'étaient pas retenus au départ ont été acceptés quelques mois plus tard, après avoir amélioré leur score.",
+      a: "Non, et c'est volontaire. La sélectivité garantit la qualité du réseau — et donc la valeur des partenariats pour tous. Si votre candidature n'est pas retenue immédiatement, on vous donne les pistes concrètes pour améliorer votre Score et recandidater. Certains salons qui n'étaient pas retenus au départ ont été acceptés quelques mois plus tard, après avoir amélioré leur score.",
     },
     {
       q: "Est-ce que je dois quitter mes marques actuelles ?",
       a: "Jamais. La Loge est 100 % complémentaire. On ajoute des possibilités, on ne retire rien. Aucune exclusivité demandée. Votre liberté, c'est non négociable.",
     },
     {
-      q: "Comment fonctionne le Score exactement ?",
-      a: "L'algorithme analyse des dizaines de signaux en temps réel : vos techniques et spécialités, votre emplacement, votre positionnement prix, vos avis Google et plateformes, votre présence Instagram, l'espace et le décor de votre salon, vos marques actuelles, le profil de votre clientèle. Il croise tout ça avec les critères des marques partenaires et calcule votre indice d'attractivité. Et il évolue : chaque nouvel avis, chaque Reel, chaque évolution de votre salon — l'algorithme le capte et recalcule.",
+      q: "Comment fonctionne le matching ?",
+      a: "L'algorithme analyse des dizaines de signaux en temps réel : vos techniques et spécialités, votre emplacement, votre positionnement prix, vos avis Google et plateformes, votre présence Instagram, l'espace et le décor de votre salon, vos marques actuelles, le profil de votre clientèle. Il croise tout ça avec les critères des marques partenaires et construit votre profil d'attractivité. Il s'enrichit en continu : chaque nouvel avis, chaque publication, chaque évolution de votre salon affine le matching.",
     },
     {
       q: "Combien de temps avant de recevoir des offres ?",
-      a: "5 minutes pour candidater. Score sous 24h. Premières propositions sous 48h. Ensuite, les offres arrivent en continu à chaque fois qu'une marque correspond à votre profil.",
+      a: "5 minutes pour candidater. Profil établi sous 24h. Premières propositions sous 48h. Ensuite, les offres arrivent en continu à chaque fois qu'une marque correspond à votre profil.",
     },
     {
       q: "Qu'est-ce que vous faites de mes données ?",
@@ -909,7 +922,7 @@ function CTAFinal() {
               {[
                 "Une conciergerie dédiée qui négocie pour vous",
                 "Des conditions que vous n'obtiendriez pas seul",
-                "Votre Score visible par toutes les marques du réseau",
+                "Votre profil visible auprès des marques du réseau",
                 "Aucun frais, aucun engagement, aucune exclusivité — jamais",
               ].map((p, i) => (
                 <div className="cta-promise" key={i}>
@@ -973,52 +986,38 @@ function CTAFinal() {
   );
 }
 
-function BrandB2B() {
-  return (
-    <section className="brand-section">
-      <div className="brand-inner">
-        <Reveal>
-          <h2 className="brand-title">
-            Marques : les artisans qui portent votre image <em>sont ici.</em>
-          </h2>
-          <p className="brand-desc">
-            La Loge a cartographié et scoré des milliers de salons en France et en Europe. On ne vous propose pas du volume — on vous propose des prescripteurs. Des salons qui vivent vos produits, qui les recommandent avec conviction, qui les mettent en lumière sur leurs réseaux. Des partenaires, pas des points de vente.
-          </p>
-          <div className="brand-points">
-            {[
-              "Réseau qualifié et scoré par positionnement, influence et exigence",
-              "Matching par affinité de marque — pas par code postal",
-              "Mise en relation directe avec les décideurs du salon",
-              "Suivi et reporting de chaque partenariat",
-            ].map((p, i) => (
-              <div className="brand-point" key={i}><span>→</span>{p}</div>
-            ))}
-          </div>
-          <a href="mailto:marques@laloge-beaute.com" className="brand-cta">MARQUES : NOUS CONTACTER →</a>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
+
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <div>
-          <div className="footer-logo">L A&nbsp;&nbsp;L O G E</div>
-          <div className="footer-tagline">Conciergerie des salons d'exception</div>
+    <footer>
+      <div className="footer-brand-strip">
+        <div className="footer-brand-inner">
+          <div>
+            <div className="footer-brand-label">POUR LES MARQUES</div>
+            <div className="footer-brand-title">Vous cherchez des salons qui portent votre image ?</div>
+            <div className="footer-brand-desc">La Loge identifie les salons qui correspondent à votre positionnement — des prescripteurs engagés, pas des points de vente. Matching par affinité, mise en relation directe.</div>
+          </div>
+          <a href="mailto:marques@laloge-beaute.com" className="footer-brand-cta">marques@laloge-beaute.com →</a>
         </div>
-        <div className="footer-links">
-          <a href="#concept">Le concept</a>
-          <a href="#score">Score La Loge</a>
-          <a href="#faq">FAQ</a>
-          <a href="mailto:bonjour@laloge-beaute.com">bonjour@laloge-beaute.com</a>
-        </div>
-        <div className="footer-links">
-          <a href="#">Mentions légales</a>
-          <a href="#">Confidentialité</a>
-          <span style={{ color: C.stone }}>© 2024 La Loge. Tous droits réservés.</span>
+      </div>
+      <div className="footer">
+        <div className="footer-inner">
+          <div>
+            <div className="footer-logo">L A&nbsp;&nbsp;L O G E</div>
+            <div className="footer-tagline">Conciergerie des salons indépendants</div>
+          </div>
+          <div className="footer-links">
+            <a href="#concept">Le concept</a>
+            <a href="#profil">Votre profil</a>
+            <a href="#faq">FAQ</a>
+            <a href="mailto:bonjour@laloge-beaute.com">bonjour@laloge-beaute.com</a>
+          </div>
+          <div className="footer-links">
+            <a href="#">Mentions légales</a>
+            <a href="#">Confidentialité</a>
+            <span style={{ color: C.stone }}>© 2025 La Loge. Tous droits réservés.</span>
+          </div>
         </div>
       </div>
     </footer>
@@ -1046,7 +1045,6 @@ export default function App() {
         <Philosophy />
         <FAQ />
         <CTAFinal />
-        <BrandB2B />
       </main>
       <Footer />
     </>
