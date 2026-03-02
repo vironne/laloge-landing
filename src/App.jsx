@@ -1141,43 +1141,43 @@ function LegalPage({ page }) {
 function BrandPage() {
   const plans = [
     {
-      name: "Découverte",
-      price: "490 €",
-      period: "/mois",
-      desc: "Pour découvrir le réseau et valider le matching.",
+      name: "Essentiel",
+      price: "10 %",
+      period: "commission",
+      desc: "Votre marque rejoint le r\u00e9seau. Les salons vous d\u00e9couvrent parmi les marques r\u00e9f\u00e9renc\u00e9es.",
       features: [
-        "Accès au réseau qualifié La Loge",
-        "Matching avec jusqu'à 20 salons par mois",
-        "Tableau de bord et suivi des mises en relation",
+        "Pr\u00e9sence dans le catalogue La Loge",
+        "Matching par affinit\u00e9 avec les salons",
+        "Tableau de bord et suivi des contacts",
         "Support email",
       ],
     },
     {
-      name: "Croissance",
-      price: "990 €",
-      period: "/mois",
+      name: "Avanc\u00e9",
+      price: "18 %",
+      period: "commission",
       highlight: true,
       badge: "LE PLUS CHOISI",
-      desc: "Pour accélérer votre distribution sur des salons à forte affinité.",
+      desc: "Visibilit\u00e9 renforc\u00e9e et ciblage actif pour acc\u00e9l\u00e9rer votre distribution.",
       features: [
-        "Matching illimité",
-        "Analytics avancés par salon et par zone",
-        "Campagnes push vers des salons ciblés",
-        "Accès prioritaire aux nouveaux salons",
-        "Support dédié",
+        "Matching illimit\u00e9 + campagnes cibl\u00e9es",
+        "Analytics avanc\u00e9s par salon et par zone",
+        "Acc\u00e8s prioritaire aux nouveaux salons",
+        "Recommandation active par La Loge",
+        "Support d\u00e9di\u00e9",
       ],
     },
     {
-      name: "Partenaire",
-      price: "1 990 €",
-      period: "/mois",
-      desc: "Pour un partenariat stratégique et une présence de référence.",
+      name: "Exclusif",
+      price: "25 %",
+      period: "commission",
+      desc: "Distribution exclusive et strat\u00e9gique. On travaille votre marque comme un partenaire privil\u00e9gi\u00e9.",
       features: [
         "Placement prioritaire dans les recommandations",
-        "Account manager dédié",
-        "Co-branding et événements exclusifs",
-        "API d'intégration",
-        "Reporting mensuel personnalisé",
+        "Account manager d\u00e9di\u00e9",
+        "Exclusivit\u00e9 sur les salons partenaires",
+        "Co-branding et \u00e9v\u00e9nements en salon",
+        "Reporting mensuel personnalis\u00e9",
       ],
     },
   ];
@@ -1244,7 +1244,7 @@ function BrandPage() {
             <div className="section-label">OFFRES</div>
             <h2 className="section-title">Transparent.<br /><em>Sans surprise.</em></h2>
             <p className="section-subtitle" style={{ marginTop: "8px" }}>
-              Trois formules adaptées à votre rythme. Une commission de 8 à 12 % sur les premières commandes générées peut également s'y substituer ou s'y ajouter selon votre préférence.
+              Trois formules à la commission. Vous ne payez que sur les résultats. Aucun abonnement, aucun frais fixe.
             </p>
           </Reveal>
           <div className="pricing-grid">
@@ -1273,8 +1273,7 @@ function BrandPage() {
           </div>
           <Reveal delay={0.35}>
             <p style={{ marginTop: "40px", fontSize: "13px", color: C.stone, fontWeight: 300, textAlign: "center", lineHeight: 1.7 }}>
-              Toutes les offres incluent un accès au tableau de bord La Loge et un onboarding accompagné.
-              Les engagements sont de 3 mois minimum. Tarifs HT.
+              Toutes les offres incluent un accès au tableau de bord La Loge et un onboarding accompagné. Commission prélevée sur les premières commandes générées via le réseau. Engagement minimum de 3 mois.
             </p>
           </Reveal>
         </div>
